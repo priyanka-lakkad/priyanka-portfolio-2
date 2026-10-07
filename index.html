@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priyanka Lakkad — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="/">PL</a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container hero">
+    <div class="hero-text">
+      <span class="status"><span class="dot"></span>Open to full-time roles</span>
+
+      <h1>Hi, I'm <span class="highlight">Priyanka!</span></h1>
+      <p class="lede">I design intelligent enterprise systems for intelligent beings.</p>
+      <p class="sub">I'm looking for full-time product designer opportunities.</p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#work">View my work</a>
+        <a class="btn btn-secondary" href="#contact">Get in touch</a>
+      </div>
+
+      <ul class="chips">
+        <li>AI &amp; agentic workflows</li>
+        <li>Enterprise B2B SaaS</li>
+        <li>Design systems</li>
+      </ul>
+    </div>
+
+    <div class="video-card" id="player">
+      <div class="video-inner">
+        <!-- To add your intro video, put the file in this folder and add: src="intro.mp4" -->
+        <video id="intro-video" playsinline></video>
+
+        <div class="video-empty">
+          <span class="video-hint">Video intro coming soon</span>
+        </div>
+
+        <button id="play-toggle" class="play-toggle" aria-label="Play video">
+          <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+        </button>
+
+        <div class="video-caption">
+          <span class="caption-title">A quick hello</span>
+          <span class="caption-time" id="time">0:00</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="container clients">
+    <p>Designed for teams at</p>
+    <ul>
+      <li>Apple</li><li>Cummins</li><li>McKesson</li><li>Jaguar Racing</li><li>Sherwin-Williams</li><li>Best Buy</li>
+    </ul>
+  </section>
+
+  <script>
+    const video = document.getElementById("intro-video");
+    const button = document.getElementById("play-toggle");
+    const player = document.getElementById("player");
+    const time = document.getElementById("time");
+
+    const fmt = (s) => {
+      if (!isFinite(s)) s = 0;
+      return Math.floor(s / 60) + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+    };
+
+    button.addEventListener("click", () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+    video.addEventListener("play", () => {
+      player.classList.add("is-playing");
+      button.setAttribute("aria-label", "Pause video");
+    });
+    video.addEventListener("pause", () => {
+      player.classList.remove("is-playing");
+      button.setAttribute("aria-label", "Play video");
+    });
+    video.addEventListener("timeupdate", () => {
+      time.textContent = fmt(video.currentTime);
+    });
+  </script>
+</body>
+</html>
