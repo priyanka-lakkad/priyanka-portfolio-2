@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project title — Priyanka Lakkad</title>
+  <meta name="description" content="One-line summary of the project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=129">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="case-page" style="--accent: #8a4b2a">
+  <!--
+    CASE STUDY TEMPLATE
+    Every project page uses this same structure. To fill one in, replace the
+    placeholder text, and swap each <div class="media">…</div> for an image:
+      <div class="media"><img src="images/your-screen.png" alt="Describe the screen"></div>
+    Screens are shown at 16:10 (standard desktop size, e.g. 1440×900).
+    The section menu is built from the <section id="…"> blocks: keep the ids
+    and menu links in sync if you add or remove a section.
+  -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">PL</a>
+      <nav>
+        <a href="../index.html#work" aria-current="page">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../index.html#resume">Resume</a>
+        <a href="../index.html#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section class="container case-hero">
+      <a class="back-link" href="../index.html#work">← All work</a>
+      <p class="panel-kicker">Company · Year</p>
+      <h1>Project title goes here</h1>
+      <p class="case-lede">One or two sentences on what the product is, who it serves, and what you designed.</p>
+    </section>
+
+    <!-- Details strip -->
+    <section class="container case-meta" data-reveal>
+      <div><h2 class="cred-label">Role</h2><p class="cred-value">Your role</p></div>
+      <div><h2 class="cred-label">Team</h2><p class="cred-value">Who you worked with</p></div>
+      <div><h2 class="cred-label">Timeline</h2><p class="cred-value">Duration</p></div>
+      <div><h2 class="cred-label">Platform</h2><p class="cred-value">Web app, desktop</p></div>
+    </section>
+
+    <!-- Hero screen -->
+    <section class="container" data-reveal>
+      <div class="media media-hero"><span>Hero screen (16:10)</span></div>
+    </section>
+
+    <!-- Story with a sticky section menu (left on desktop, top bar on phones) -->
+    <div class="container case-layout">
+      <nav class="case-toc" aria-label="Case study sections">
+        <p class="cred-label">On this page</p>
+        <ol id="case-toc">
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#outcomes">Outcomes</a></li>
+          <li><a href="#reflection">Reflection</a></li>
+        </ol>
+      </nav>
+
+      <div class="case-content">
+        <section class="case-section" id="impact" data-reveal>
+          <div class="case-impact">
+            <div class="impact"><span class="metric-num">00%</span><span class="metric-label">Impact metric</span></div>
+            <div class="impact"><span class="metric-num">00%</span><span class="metric-label">Impact metric</span></div>
+            <div class="impact"><span class="metric-num">00</span><span class="metric-label">Impact metric</span></div>
+          </div>
+        </section>
+        <section class="case-section" id="problem" data-reveal>
+          <p class="case-num">01 · Problem</p>
+          <h2>A one-line statement of the problem.</h2>
+          <p>Describe the current state: what was broken, for whom, and why it mattered to the business. Keep it to two or three short paragraphs.</p>
+          <p>Add the constraints you were working within, such as legacy systems, compliance, or timelines.</p>
+        </section>
+        <section class="case-section" id="research" data-reveal>
+          <p class="case-num">02 · Research</p>
+          <h2>How you learned about the users and the problem.</h2>
+          <p>Methods you used (interviews, workflow mapping, data analysis, competitive review) and who you spoke to.</p>
+          <div class="media"><span>Research artifact (journey map, workflow diagram)</span></div>
+        </section>
+        <section class="case-section" id="insights" data-reveal>
+          <p class="case-num">03 · Insights</p>
+          <h2>What you discovered that shaped the design.</h2>
+          <ol class="insights">
+            <li><strong>Insight one</strong><span>One or two lines explaining it and why it mattered.</span></li>
+            <li><strong>Insight two</strong><span>One or two lines explaining it and why it mattered.</span></li>
+            <li><strong>Insight three</strong><span>One or two lines explaining it and why it mattered.</span></li>
+          </ol>
+        </section>
+        <section class="case-section" id="process" data-reveal>
+          <p class="case-num">04 · Process</p>
+          <h2>How the work came together.</h2>
+          <ol class="flow">
+            <li><span class="node"></span><strong>Research</strong><span>What you learned</span></li>
+            <li><span class="node"></span><strong>Define</strong><span>The key decision</span></li>
+            <li><span class="node"></span><strong>Design</strong><span>What you built</span></li>
+            <li><span class="node"></span><strong>Validate</strong><span>How you tested it</span></li>
+          </ol>
+          <p>A short paragraph on how you iterated, what you tested, and what changed along the way.</p>
+        </section>
+        <section class="case-section" id="solution" data-reveal>
+          <p class="case-num">05 · Solution</p>
+          <h2>What you designed, feature by feature.</h2>
+          <p>Walk through the main parts of the design. For each one, show the screen and explain the decision behind it.</p>
+          <figure class="feature">
+            <div class="media"><span>Feature screen 1 (16:10)</span></div>
+            <figcaption><strong>Feature name</strong><span>Why it was designed this way and the problem it solves.</span></figcaption>
+          </figure>
+          <figure class="feature">
+            <div class="media"><span>Feature screen 2 (16:10)</span></div>
+            <figcaption><strong>Feature name</strong><span>Why it was designed this way and the problem it solves.</span></figcaption>
+          </figure>
+          <figure class="feature">
+            <div class="media"><span>Feature screen 3 (16:10)</span></div>
+            <figcaption><strong>Feature name</strong><span>Why it was designed this way and the problem it solves.</span></figcaption>
+          </figure>
+        </section>
+        <section class="case-section" id="outcomes" data-reveal>
+          <p class="case-num">06 · Outcomes</p>
+          <h2>What changed after launch.</h2>
+          <p>The results in numbers and in people's words: adoption, time saved, errors reduced, quotes from users or stakeholders.</p>
+          <blockquote class="quote">“A short quote from a user or stakeholder about the impact.”<cite>Name, Role</cite></blockquote>
+        </section>
+        <section class="case-section" id="reflection" data-reveal>
+          <p class="case-num">07 · Reflection</p>
+          <h2>What you learned.</h2>
+          <p>What went well, what you would do differently, and what you'd explore next.</p>
+        </section>
+      </div>
+    </div>
+
+    <!-- Next project -->
+    <section class="container next-project" data-reveal>
+      <a href="project-2.html">
+        <span class="cred-label">Next project</span>
+        <span class="next-title">ignio<sup>™</sup> <span aria-hidden="true">→</span></span>
+      </a>
+    </section>
+  </main>
+
+  <section class="container cta" id="contact">
+    <div class="cta-text" data-reveal>
+      <p class="availability"><span class="avail-dot"></span>Available for full-time product design opportunities</p>
+      <h2>Let's build <span class="highlight">intelligent systems</span> together.</h2>
+      <p class="cta-note">I'm always happy to connect about product design, emerging AI experiences, or new opportunities.</p>
+      <a class="btn btn-secondary" href="../index.html#resume">View resume</a>
+    </div>
+
+    <ul class="contact-list" data-reveal style="--d:.1s">
+      <li class="contact-row">
+        <span class="contact-label">Email</span>
+        <a class="contact-value" href="mailto:plakkad06@gmail.com">plakkad06@gmail.com</a>
+        <button class="copy-btn" type="button" data-copy="plakkad06@gmail.com">Copy</button>
+      </li>
+      <li class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <a class="contact-value" href="https://www.linkedin.com/in/priyankalakkad/" target="_blank" rel="noopener">in/priyankalakkad</a>
+        <svg class="row-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </li>
+      <li class="contact-row">
+        <span class="contact-label">Instagram</span>
+        <a class="contact-value" href="https://www.instagram.com/drummerpriyanka/" target="_blank" rel="noopener">@drummerpriyanka</a>
+        <svg class="row-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="container site-footer" data-reveal>
+    <p>© 2026 Priyanka Lakkad</p>
+  </footer>
+
+  <button class="to-top" id="to-top" aria-label="Back to top">
+    <svg class="to-top-ring" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" class="to-top-track"/>
+      <circle cx="24" cy="24" r="22" class="to-top-progress"/>
+    </svg>
+    <svg class="to-top-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
+
+  <script src="../contact.js?v=1"></script>
+  <script src="../scroll.js?v=10"></script>
+  <script src="../logo.js?v=10"></script>
+  <script src="../case.js?v=6"></script>
+</body>
+</html>
