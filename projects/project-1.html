@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ProcureFlow — Priyanka Lakkad</title>
-  <meta name="description" content="One-line summary of the project.">
+  <meta name="description" content="ProcureFlow helps procurement teams turn approved purchase requests into accurate, traceable purchase orders.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=129">
+  <link rel="stylesheet" href="../styles.css?v=165">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="case-page" style="--accent: #2d5b8c">
@@ -37,9 +37,9 @@
     <!-- Intro -->
     <section class="container case-hero">
       <a class="back-link" href="../index.html#work">← All work</a>
-      <p class="panel-kicker">Company · Year</p>
+      <p class="panel-kicker">Technology Industry · 2026</p>
       <h1>ProcureFlow</h1>
-      <p class="case-lede">One or two sentences on what the product is, who it serves, and what you designed.</p>
+      <p class="case-lede">ProcureFlow helps procurement teams turn approved purchase requests into accurate, traceable purchase orders.</p>
     </section>
 
     <!-- Project overview: text on the left, hero screen on the right -->
@@ -48,11 +48,11 @@
         <p class="case-num">01 · Project overview</p>
         <div class="case-sub" id="overview-problem">
           <h3>The problem</h3>
-          <p>What was broken in the procurement process, for whom, and why it mattered.</p>
+          <p>Procurement specialists had to consolidate and re-enter purchasing data across disconnected systems before issuing purchase orders for company purchases. This fragmented process increased cycle time, introduced errors, and weakened traceability.</p>
         </div>
         <div class="case-sub" id="overview-solution">
           <h3>The solution</h3>
-          <p>In a few lines, what ProcureFlow does and how it changes the workflow.</p>
+          <p>ProcureFlow creates a controlled handoff between purchase request review and order creation. The Purchase Request Agent verifies that an approved request is ready for ordering, while the Purchase Order Agent carries the verified context into draft vendor orders and checks them against the original request.</p>
         </div>
         <div class="case-sub" id="overview-impact">
           <h3>The impact</h3>
@@ -60,11 +60,67 @@
         </div>
         <div class="case-sub" id="overview-role">
           <h3>My role</h3>
-          <p>Your role on the project, what you owned, and who you worked with.</p>
+          <p>As the sole designer over nine months, I mapped the procurement workflow, defined each agent’s responsibilities and human checkpoints, and led the work from early concepts through prototype validation.</p>
         </div>
       </div>
       <div class="overview-media">
-        <div class="media media-hero"><span>Hero screen (16:10)</span></div>
+        <!-- Workflow visual: request -> PR agent -> controlled handoff -> PO agent -> draft orders -->
+        <div class="pf-visual" aria-label="ProcureFlow workflow: an approved purchase request is verified by the Purchase Request Agent, passes a controlled handoff with a human checkpoint, and the Purchase Order Agent drafts vendor orders checked against the request." role="img">
+          <div class="pf-head">
+            <span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span>
+            <span class="pf-title">ProcureFlow · Request to order</span>
+          </div>
+
+          <div class="pf-flow">
+            <div class="pf-track" aria-hidden="true"><span class="pf-signal"></span></div>
+
+            <div class="pf-step">
+              <div class="pf-doc">
+                <span class="pf-doc-id">PR-1042</span>
+                <span class="pf-line"></span><span class="pf-line short"></span><span class="pf-line"></span>
+                <span class="pf-chip ok">Approved</span>
+              </div>
+              <span class="pf-label">Purchase request</span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-agent a1">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>
+              </div>
+              <span class="pf-label">Request Agent<em>Verifies readiness</em></span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-gate">
+                <span class="pf-gate-bar"></span>
+                <span class="pf-human" title="Human checkpoint">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg>
+                </span>
+              </div>
+              <span class="pf-label">Controlled handoff<em>Human checkpoint</em></span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-agent a2">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h7l4 4v12H7z"/><path d="M14 4v4h4M10 13h5M10 16.5h5"/></svg>
+              </div>
+              <span class="pf-label">Order Agent<em>Drafts vendor orders</em></span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-orders">
+                <div class="pf-doc small back"><span class="pf-doc-id">PO-2207</span><span class="pf-line"></span><span class="pf-line short"></span></div>
+                <div class="pf-doc small"><span class="pf-doc-id">PO-2206</span><span class="pf-line"></span><span class="pf-line short"></span><span class="pf-chip match">Matches request</span></div>
+              </div>
+              <span class="pf-label">Draft orders</span>
+            </div>
+          </div>
+
+          <div class="pf-foot">
+            <span><b>Verified context</b> carried across the handoff</span>
+            <span class="pf-trace">Traceable to PR-1042</span>
+          </div>
+        </div>
       </div>
     </section>
 

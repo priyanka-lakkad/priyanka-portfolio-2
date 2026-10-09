@@ -1,0 +1,213 @@
+<!--
+  SAVED COMPONENT: ProcureFlow workflow visual
+  Request -> Request Agent -> Controlled handoff (human checkpoint) -> Order Agent -> Draft orders
+  To reuse: paste the markup below where the visual should go, and the CSS
+  (in the <style> block) into styles.css. Colors come from --accent.
+  Saved 2026-10-08.
+-->
+<style>
+/* ---------- ProcureFlow hero: workflow visual ---------- */
+.pf-visual {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 16 / 10;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 15% 10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 95% 100%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+    #f7f8fb;
+  border: 1px solid color-mix(in srgb, var(--accent) 12%, #ebeef3);
+  box-shadow: 0 2px 6px rgba(22, 20, 26, .05), 0 40px 80px -48px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.pf-head { display: flex; align-items: center; gap: 6px; padding: 14px 18px; border-bottom: 1px solid color-mix(in srgb, var(--accent) 10%, #edf0f4); background: rgba(255, 255, 255, .7); }
+.pf-dot { width: 8px; height: 8px; border-radius: 50%; background: #dfe3ea; }
+.pf-title { margin-left: 10px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #6c6670; }
+
+.pf-flow {
+  position: relative;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  padding: 0 clamp(12px, 2vw, 28px);
+}
+/* Dashed track behind the steps, with a signal travelling along it */
+.pf-track {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: calc(50% - 14px);
+  height: 2px;
+  background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 35%, transparent) 0 6px, transparent 6px 12px);
+}
+.pf-signal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 18%, transparent);
+  animation: pf-signal 5s cubic-bezier(.6, 0, .4, 1) infinite;
+}
+@keyframes pf-signal {
+  0% { left: 0; opacity: 0; }
+  6% { opacity: 1; }
+  45%, 55% { left: 50%; }
+  94% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+.pf-step { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.pf-label { display: flex; flex-direction: column; gap: 2px; font-size: clamp(11px, .8vw, 13px); font-weight: 700; color: var(--text); line-height: 1.25; }
+.pf-label em { font-style: normal; font-weight: 500; color: #6c6670; }
+
+.pf-doc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: clamp(64px, 6.2vw, 96px);
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--white);
+  border: 1px solid #e6e9ef;
+  box-shadow: 0 10px 24px -16px rgba(22, 20, 26, .35);
+  text-align: left;
+}
+.pf-doc-id { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: .02em; }
+.pf-line { height: 4px; border-radius: 4px; background: #e9ecf2; }
+.pf-line.short { width: 60%; }
+.pf-chip { margin-top: 3px; align-self: flex-start; padding: 2px 6px; border-radius: 999px; font-size: 9px; font-weight: 700; white-space: nowrap; }
+.pf-chip.ok { color: #2f8a5c; background: #e7f5ec; }
+.pf-chip.match { color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, white); }
+
+.pf-agent {
+  display: grid;
+  place-items: center;
+  width: clamp(48px, 4.4vw, 64px);
+  height: clamp(48px, 4.4vw, 64px);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 12%, transparent), 0 14px 28px -14px var(--accent);
+  animation: pf-pulse 5s ease-out infinite;
+}
+.pf-agent.a1 { animation-delay: .9s; }
+.pf-agent.a2 { animation-delay: 3.4s; }
+@keyframes pf-pulse {
+  0%, 12%, 100% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 12%, transparent), 0 14px 28px -14px var(--accent); }
+  5% { box-shadow: 0 0 0 12px color-mix(in srgb, var(--accent) 18%, transparent), 0 14px 28px -14px var(--accent); }
+}
+.pf-agent svg { width: 45%; height: 45%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The handoff: a gate with a human checkpoint on it */
+.pf-gate { position: relative; display: grid; place-items: center; width: 40px; height: clamp(72px, 7vw, 100px); }
+.pf-gate-bar { width: 3px; height: 100%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 45%, transparent); }
+.pf-human {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+.pf-human svg { width: 60%; height: 60%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+.pf-orders { position: relative; }
+.pf-doc.small { width: clamp(60px, 5.8vw, 90px); }
+.pf-doc.back { position: absolute; top: -10px; left: 10px; opacity: .55; transform: rotate(5deg); }
+.pf-doc.back .pf-doc-id { visibility: hidden; }
+.pf-orders .pf-doc:not(.back) { position: relative; }
+.pf-doc-id { white-space: nowrap; }
+
+.pf-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 10%, #edf0f4);
+  background: rgba(255, 255, 255, .7);
+  font-size: 12px;
+  color: #5a5663;
+}
+.pf-foot b { color: var(--text); font-weight: 700; }
+.pf-trace { font-weight: 600; color: var(--accent); white-space: nowrap; }
+
+
+/* Phones (inside @media (max-width: 900px)) */
+@media (max-width: 900px) {
+  .pf-visual { aspect-ratio: auto; }
+  .pf-flow { padding: 26px 8px; gap: 4px; }
+  .pf-label em { display: none; }
+  .pf-doc, .pf-doc.small { width: 54px; padding: 7px; }
+  .pf-doc-id { font-size: 8px; }
+  .pf-chip { display: none; }
+  .pf-agent { width: 40px; height: 40px; }
+  .pf-label { font-size: 10px; }
+  .pf-foot { flex-direction: column; gap: 4px; }
+  .pf-signal, .pf-agent { animation: none !important; }
+}
+</style>
+
+        <!-- Workflow visual: request -> PR agent -> controlled handoff -> PO agent -> draft orders -->
+        <div class="pf-visual" aria-label="ProcureFlow workflow: an approved purchase request is verified by the Purchase Request Agent, passes a controlled handoff with a human checkpoint, and the Purchase Order Agent drafts vendor orders checked against the request." role="img">
+          <div class="pf-head">
+            <span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span>
+            <span class="pf-title">ProcureFlow · Request to order</span>
+          </div>
+
+          <div class="pf-flow">
+            <div class="pf-track" aria-hidden="true"><span class="pf-signal"></span></div>
+
+            <div class="pf-step">
+              <div class="pf-doc">
+                <span class="pf-doc-id">PR-1042</span>
+                <span class="pf-line"></span><span class="pf-line short"></span><span class="pf-line"></span>
+                <span class="pf-chip ok">Approved</span>
+              </div>
+              <span class="pf-label">Purchase request</span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-agent a1">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>
+              </div>
+              <span class="pf-label">Request Agent<em>Verifies readiness</em></span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-gate">
+                <span class="pf-gate-bar"></span>
+                <span class="pf-human" title="Human checkpoint">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg>
+                </span>
+              </div>
+              <span class="pf-label">Controlled handoff<em>Human checkpoint</em></span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-agent a2">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h7l4 4v12H7z"/><path d="M14 4v4h4M10 13h5M10 16.5h5"/></svg>
+              </div>
+              <span class="pf-label">Order Agent<em>Drafts vendor orders</em></span>
+            </div>
+
+            <div class="pf-step">
+              <div class="pf-orders">
+                <div class="pf-doc small back"><span class="pf-doc-id">PO-2207</span><span class="pf-line"></span><span class="pf-line short"></span></div>
+                <div class="pf-doc small"><span class="pf-doc-id">PO-2206</span><span class="pf-line"></span><span class="pf-line short"></span><span class="pf-chip match">Matches request</span></div>
+              </div>
+              <span class="pf-label">Draft orders</span>
+            </div>
+          </div>
+
+          <div class="pf-foot">
+            <span><b>Verified context</b> carried across the handoff</span>
+            <span class="pf-trace">Traceable to PR-1042</span>
+          </div>
+        </div>
