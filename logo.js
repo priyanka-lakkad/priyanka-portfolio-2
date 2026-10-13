@@ -8,7 +8,10 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const accent = getComputedStyle(document.body).getPropertyValue("--accent").trim() || "#5a2d4c";
   // Same palette as the dots around the video circle, plus this page's project color
-  const COLORS = [accent, "#5a2d4c", "#a3506a", "#3c4766", "#9a9298"];
+  // Pages with .accent-theme burst in their own color only
+  const COLORS = document.body.classList.contains("accent-theme")
+    ? [accent, accent, "#0b1f33"]
+    : [accent, "#5a2d4c", "#a3506a", "#3c4766", "#9a9298"];
   const COUNT = 5;
   const DURATION = 300;
   const GROW = 220;

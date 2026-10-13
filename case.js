@@ -10,6 +10,8 @@
   const sections = links.map((a) => document.querySelector(a.getAttribute("href")));
   const mainItemOf = (a) => a.closest("#case-toc > li");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const pct = document.getElementById("toc-pct");
+  const bar = document.getElementById("toc-bar");
 
   // Position on the page, ignoring the slide-in offset of the scroll animation
   const pageTop = (el) => {
@@ -47,6 +49,9 @@
       ? toc.offsetHeight - 12
       : Math.max(0, offsetInMenu(active) + active.offsetHeight / 2 - 6);
     toc.style.setProperty("--fill", `${fill}px`);
+    // A solid marker on the line, the height of the item you're reading
+    toc.style.setProperty("--mark-top", `${offsetInMenu(active)}px`);
+    toc.style.setProperty("--mark-h", `${complete ? 0 : active.offsetHeight}px`);
 
     // On phones the menu is a sideways row of main tabs; keep the current one in view
     if (toc.scrollWidth > toc.clientWidth) {
@@ -71,6 +76,15 @@
     const complete = storyEnd <= window.innerHeight * 0.85 || (atBottom && lastTop < window.innerHeight);
     if (complete) index = sections.length - 1;
     setActive(index, complete);
+
+    // Percent read through the story, shown in the menu header and bar
+    const story = document.querySelector(".case-content");
+    if (story && pct) {
+      const top = pageTop(story) - window.innerHeight * 0.33;
+      const p = complete ? 1 : Math.min(1, Math.max(0, (window.scrollY - top) / (story.offsetHeight - window.innerHeight * 0.5)));
+      pct.textContent = `${Math.round(p * 100)}%`;
+      if (bar) bar.parentElement.style.setProperty("--pct", p.toFixed(3));
+    }
   };
 
   let ticking = false;

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=165">
+  <link rel="stylesheet" href="../styles.css?v=245">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="case-page" style="--accent: #2f6f62">
@@ -58,8 +58,9 @@
     <!-- Story with a sticky section menu (left on desktop, top bar on phones) -->
     <div class="container case-layout">
       <nav class="case-toc" aria-label="Case study sections">
-        <p class="cred-label">On this page</p>
+        <div class="toc-head"><p class="cred-label">On this page</p></div>
         <ol id="case-toc">
+          <span class="toc-marker" aria-hidden="true"></span>
           <li><a href="#impact">Impact</a></li>
           <li><a href="#problem">Problem</a></li>
           <li><a href="#research">Research</a></li>
@@ -81,19 +82,16 @@
         </section>
         <section class="case-section" id="problem" data-reveal>
           <p class="case-num">01 · Problem</p>
-          <h2>A one-line statement of the problem.</h2>
           <p>Describe the current state: what was broken, for whom, and why it mattered to the business. Keep it to two or three short paragraphs.</p>
           <p>Add the constraints you were working within, such as legacy systems, compliance, or timelines.</p>
         </section>
         <section class="case-section" id="research" data-reveal>
           <p class="case-num">02 · Research</p>
-          <h2>How you learned about the users and the problem.</h2>
           <p>Methods you used (interviews, workflow mapping, data analysis, competitive review) and who you spoke to.</p>
           <div class="media"><span>Research artifact (journey map, workflow diagram)</span></div>
         </section>
         <section class="case-section" id="insights" data-reveal>
           <p class="case-num">03 · Insights</p>
-          <h2>What you discovered that shaped the design.</h2>
           <ol class="insights">
             <li><strong>Insight one</strong><span>One or two lines explaining it and why it mattered.</span></li>
             <li><strong>Insight two</strong><span>One or two lines explaining it and why it mattered.</span></li>
@@ -102,7 +100,6 @@
         </section>
         <section class="case-section" id="process" data-reveal>
           <p class="case-num">04 · Process</p>
-          <h2>How the work came together.</h2>
           <ol class="flow">
             <li><span class="node"></span><strong>Research</strong><span>What you learned</span></li>
             <li><span class="node"></span><strong>Define</strong><span>The key decision</span></li>
@@ -113,7 +110,6 @@
         </section>
         <section class="case-section" id="solution" data-reveal>
           <p class="case-num">05 · Solution</p>
-          <h2>What you designed, feature by feature.</h2>
           <p>Walk through the main parts of the design. For each one, show the screen and explain the decision behind it.</p>
           <figure class="feature">
             <div class="media"><span>Feature screen 1 (16:10)</span></div>
@@ -130,13 +126,11 @@
         </section>
         <section class="case-section" id="outcomes" data-reveal>
           <p class="case-num">06 · Outcomes</p>
-          <h2>What changed after launch.</h2>
           <p>The results in numbers and in people's words: adoption, time saved, errors reduced, quotes from users or stakeholders.</p>
           <blockquote class="quote">“A short quote from a user or stakeholder about the impact.”<cite>Name, Role</cite></blockquote>
         </section>
         <section class="case-section" id="reflection" data-reveal>
           <p class="case-num">07 · Reflection</p>
-          <h2>What you learned.</h2>
           <p>What went well, what you would do differently, and what you'd explore next.</p>
         </section>
       </div>
@@ -193,6 +187,6 @@
   <script src="../contact.js?v=1"></script>
   <script src="../scroll.js?v=10"></script>
   <script src="../logo.js?v=10"></script>
-  <script src="../case.js?v=6"></script>
+  <script src="../case.js?v=8"></script>
 </body>
 </html>

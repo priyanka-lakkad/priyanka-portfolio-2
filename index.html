@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=165">
+  <link rel="stylesheet" href="styles.css?v=245">
   <script>document.documentElement.classList.add("js", "is-home");</script>
 </head>
 <body>
@@ -115,16 +115,17 @@
       </div>
     </article>
 
-    <article class="project-app" data-project data-reveal style="--accent: #2d5b8c">
+    <article class="project-app" data-project data-reveal style="--accent: #1777c8">
       <div class="showcase">
-        <div class="screen is-active" role="tabpanel" data-panel="one"><span>Key screen 1 (e.g. Dashboard)</span></div>
-        <div class="screen" role="tabpanel" data-panel="two"><span>Key screen 2 (e.g. Workflow builder)</span></div>
-        <div class="screen" role="tabpanel" data-panel="three"><span>Key screen 3 (e.g. Insights)</span></div>
+        <!-- ProcureFlow screens from the case study's Solution section: live pages scaled to the card, plus the handoff capture -->
+        <div class="screen is-active is-live" role="tabpanel" data-panel="one"><iframe data-src="https://procureflow-operations.plakkad.chatgpt.site/#/overview" title="ProcureFlow: Dashboard" referrerpolicy="no-referrer" tabindex="-1"></iframe></div>
+        <div class="screen is-live" role="tabpanel" data-panel="two"><img src="images/human-checkpoint-handoff.png" alt="ProcureFlow: PR to PO handoff, paused for approval"></div>
+        <div class="screen is-live" role="tabpanel" data-panel="three"><iframe data-src="https://procureflow-operations.plakkad.chatgpt.site/#/purchase-orders/PO-2088" title="ProcureFlow: PO-2088" referrerpolicy="no-referrer" tabindex="-1"></iframe></div>
 
         <div class="app-tabs" role="tablist" aria-label="Project screens">
-          <button role="tab" aria-selected="true" data-tab="one">Screen one<span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="two">Screen two<span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="three">Screen three<span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="true" data-tab="one" aria-label="Dashboard"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="two" aria-label="Human Checkpoint"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="three" aria-label="PO Flow"><span class="tab-progress"></span></button>
         </div>
       </div>
 
@@ -151,9 +152,9 @@
         <div class="screen" role="tabpanel" data-panel="three"><span>Key screen 3 (e.g. Insights)</span></div>
 
         <div class="app-tabs" role="tablist" aria-label="Project screens">
-          <button role="tab" aria-selected="true" data-tab="one">Screen one<span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="two">Screen two<span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="three">Screen three<span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="true" data-tab="one" aria-label="Screen 1"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="two" aria-label="Screen 2"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="three" aria-label="Screen 3"><span class="tab-progress"></span></button>
         </div>
       </div>
 
@@ -180,9 +181,9 @@
         <div class="screen" role="tabpanel" data-panel="three"><span>Key screen 3 (e.g. Insights)</span></div>
 
         <div class="app-tabs" role="tablist" aria-label="Project screens">
-          <button role="tab" aria-selected="true" data-tab="one">Screen one<span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="two">Screen two<span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="three">Screen three<span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="true" data-tab="one" aria-label="Screen 1"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="two" aria-label="Screen 2"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="three" aria-label="Screen 3"><span class="tab-progress"></span></button>
         </div>
       </div>
 
@@ -265,7 +266,7 @@
       time.textContent = fmt(video.currentTime);
     });
   </script>
-  <script src="projects.js?v=2"></script>
+  <script src="projects.js?v=4"></script>
   <button class="to-top" id="to-top" aria-label="Back to top">
     <svg class="to-top-ring" viewBox="0 0 48 48" aria-hidden="true">
       <circle cx="24" cy="24" r="22" class="to-top-track"/>

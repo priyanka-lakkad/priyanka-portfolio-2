@@ -25,6 +25,30 @@
       });
     });
 
+    // Clicking anywhere on the card opens its case study; the screen dots
+    // and links keep their own behavior
+    const link = project.querySelector(".app-link");
+    if (link) project.addEventListener("click", (e) => {
+      if (e.target.closest('a, button, [role="tab"]')) return;
+      if (e.metaKey || e.ctrlKey) window.open(link.href, "_blank");
+      else window.location.href = link.href;
+    });
+
+    // Live screens: scale each 1440×900 page to the card and load it once
+    // the card is near the viewport
+    const live = [...project.querySelectorAll(".screen.is-live")];
+    if (live.length) {
+      const showcase = project.querySelector(".showcase");
+      const fit = () => live.forEach((el) => el.style.setProperty("--s", (showcase.clientWidth / 1440).toFixed(4)));
+      fit();
+      if ("ResizeObserver" in window) new ResizeObserver(fit).observe(showcase); else window.addEventListener("resize", fit);
+      const load = () => project.querySelectorAll(".screen iframe[data-src]").forEach((f) => { if (!f.src) f.src = f.dataset.src; });
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "600px 0px" });
+        io.observe(project);
+      } else load();
+    }
+
     if (reduceMotion) project.classList.add("is-paused");
 
     // Only auto-advance while the project is on screen
