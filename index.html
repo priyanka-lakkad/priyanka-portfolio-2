@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=245">
+  <link rel="stylesheet" href="styles.css?v=263">
   <script>document.documentElement.classList.add("js", "is-home");</script>
 </head>
 <body>
@@ -108,14 +108,14 @@
         <div class="project-info-side">
           <div class="metric">
             <span class="metric-num metric-status">In progress<span class="dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span></span>
-            <span class="metric-label">Impact metric</span>
+            <span class="metric-label">Two case studies underway</span>
           </div>
-          <a class="app-link" href="projects/project-2.html">Open case study <span aria-hidden="true">→</span></a>
+          <button class="app-link" type="button" data-modal-open="digitate-modal" aria-haspopup="dialog">View details <span aria-hidden="true">→</span></button>
         </div>
       </div>
     </article>
 
-    <article class="project-app" data-project data-reveal style="--accent: #1777c8">
+    <article class="project-app" data-project data-reveal style="--accent: #1777c8; --cta-bg: #0b1f33; --cta-highlight: #a9c1dc">
       <div class="showcase">
         <!-- ProcureFlow screens from the case study's Solution section: live pages scaled to the card, plus the handoff capture -->
         <div class="screen is-active is-live" role="tabpanel" data-panel="one"><iframe data-src="https://procureflow-operations.plakkad.chatgpt.site/#/overview" title="ProcureFlow: Dashboard" referrerpolicy="no-referrer" tabindex="-1"></iframe></div>
@@ -137,8 +137,8 @@
         </div>
         <div class="project-info-side">
           <div class="metric">
-            <span class="metric-num">00%</span>
-            <span class="metric-label">Impact metric</span>
+            <span class="metric-num">35%</span>
+            <span class="metric-label">Reduction in request-to-PO cycle time</span>
           </div>
           <a class="app-link" href="projects/project-1.html">Open case study <span aria-hidden="true">→</span></a>
         </div>
@@ -174,35 +174,57 @@
       </div>
     </article>
 
-    <article class="project-app" data-project data-reveal style="--accent: #8a4b2a">
+    <article class="project-app" data-project data-reveal style="--accent: #0b7d8a; --cta-bg: #04161b; --cta-highlight: #7fd6df">
       <div class="showcase">
-        <div class="screen is-active" role="tabpanel" data-panel="one"><span>Key screen 1 (e.g. Dashboard)</span></div>
-        <div class="screen" role="tabpanel" data-panel="two"><span>Key screen 2 (e.g. Workflow builder)</span></div>
-        <div class="screen" role="tabpanel" data-panel="three"><span>Key screen 3 (e.g. Insights)</span></div>
-
-        <div class="app-tabs" role="tablist" aria-label="Project screens">
-          <button role="tab" aria-selected="true" data-tab="one" aria-label="Screen 1"><span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="two" aria-label="Screen 2"><span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="three" aria-label="Screen 3"><span class="tab-progress"></span></button>
+        <!-- A single screen shown on a TV, so this card has no tabs -->
+        <div class="screen is-active is-tv">
+          <div class="tv">
+            <div class="tv-body"><img src="images/tv-screen.jpg" alt="Gen 2 race car on a TV screen, with Explore and Track options"></div>
+            <div class="tv-neck"></div>
+            <div class="tv-base"></div>
+          </div>
         </div>
       </div>
 
       <div class="project-info">
         <div class="project-info-text">
-          <p class="panel-kicker">Company</p>
-          <h3 class="project-title">Project title goes here</h3>
-          <p>One line on what you designed and why it mattered.</p>
+          <p class="panel-kicker">Jaguar Racing · 2022</p>
+          <h3 class="project-title">Jaguar Gen 2 Formula E Interactive Installation</h3>
+          <p>A touchscreen experience for Formula E fans and an operational tool for the event teams running it.</p>
         </div>
         <div class="project-info-side">
           <div class="metric">
-            <span class="metric-num">00%</span>
-            <span class="metric-label">Impact metric</span>
+            <span class="metric-num">20K+</span>
+            <span class="metric-label">Attendees engaged at the London E-Prix</span>
           </div>
           <a class="app-link" href="projects/project-4.html">Open case study <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </article>
   </section>
+
+  <!-- Digitate has no case study page yet: its card opens this summary instead -->
+  <dialog class="project-modal" id="digitate-modal" aria-labelledby="digitate-modal-title" style="--accent: #2a4bc6">
+    <button class="modal-close" type="button" data-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <p class="panel-kicker">Digitate</p>
+    <h2 class="modal-title" id="digitate-modal-title">ignio<sup>™</sup></h2>
+    <p class="modal-lede">Enhancing IT operations with AI-powered observability</p>
+    <p class="modal-status"><span class="avail-dot"></span>Case studies in progress</p>
+    <p class="modal-intro">I’m currently working on two key initiatives:</p>
+    <ol class="modal-list">
+      <li>
+        <h3>Improving observability for executive decision-making</h3>
+        <p>Creating a unified experience that translates complex IT operations data into clear insights, helping business and technology leaders understand service health, assess operational risks, measure business impact, and make informed decisions.</p>
+      </li>
+      <li>
+        <h3>Automating end-to-end feature releases for DevOps teams</h3>
+        <p>Designing an intelligent dashboard that enables DevOps teams to orchestrate and automate the complete feature release cycle for our flagship product, ignio<sup>™</sup>, from planning and validation to deployment, monitoring, and recovery. This helps teams release faster, reduce manual effort, and minimize risk.</p>
+      </li>
+    </ol>
+    <a class="btn btn-primary modal-cta" href="#contact" data-modal-close>Contact me for more details</a>
+  </dialog>
 
   <section class="container cta" id="contact">
     <div class="cta-text" data-reveal>
@@ -266,7 +288,7 @@
       time.textContent = fmt(video.currentTime);
     });
   </script>
-  <script src="projects.js?v=4"></script>
+  <script src="projects.js?v=9"></script>
   <button class="to-top" id="to-top" aria-label="Back to top">
     <svg class="to-top-ring" viewBox="0 0 48 48" aria-hidden="true">
       <circle cx="24" cy="24" r="22" class="to-top-track"/>

@@ -141,7 +141,7 @@ a { color: inherit; text-decoration: none; }
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(90, 45, 76, .35);
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
   transition: text-decoration-color .2s;
 }
 .inline-link:hover { text-decoration-color: currentColor; }
@@ -336,7 +336,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   text-align: center;
   line-height: 1.15;
-  transition: background .2s, transform .2s;
+  transition: background .2s, transform .2s, border-color .4s, color .4s;
 }
 .logo-slot:nth-child(4n + 2) { --c: 163, 80, 106; }
 .logo-slot:nth-child(4n + 3) { --c: 60, 71, 102; }
@@ -371,7 +371,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 28px;
   background: var(--white);
   border: 1px solid #efeaed;
-  box-shadow: 0 30px 60px -48px rgba(22, 20, 26, .22);
+  box-shadow: 0 2px 6px rgba(22, 20, 26, .06), 0 30px 60px -30px rgba(22, 20, 26, .28);
 }
 .showcase {
   position: relative;
@@ -533,11 +533,11 @@ a { color: inherit; text-decoration: none; }
 /* Hovering anywhere on the card lifts it with a deeper shadow */
 .project-app:hover {
   transform: translateY(-6px);
-  box-shadow: 0 2px 6px rgba(22, 20, 26, .05), 0 40px 70px -30px color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow: 0 4px 10px rgba(22, 20, 26, .08), 0 50px 90px -30px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 .project-app:has(.project-info:active) {
   transform: translateY(-2px);
-  box-shadow: 0 2px 6px rgba(22, 20, 26, .05), 0 24px 50px -30px color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow: 0 3px 8px rgba(22, 20, 26, .07), 0 32px 64px -30px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 .project-app:hover .app-link span { transform: translateX(4px); }
 
@@ -1236,6 +1236,7 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: minmax(0, .8fr) minmax(0, 2fr);
   gap: clamp(24px, 3vw, 48px);
   align-items: center;
+  align-content: start;
   opacity: 0;
   visibility: hidden;
   transition: opacity .3s ease, visibility 0s linear .3s;
@@ -1267,6 +1268,12 @@ a { color: inherit; text-decoration: none; }
 .stepper-screen.is-live iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; transform: scale(var(--s, .5)); pointer-events: none; }
 .stepper-screen.is-live img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0; box-shadow: none; object-fit: cover; object-position: top; }
 /* Scrollable screens: the whole page is rendered and the frame scrolls it; clicks stay off */
+/* Placeholder text in an empty screen */
+.stepper-screen.is-live > span:only-child { position: absolute; inset: 0; display: grid; place-items: center; }
+/* Video screen: fills the frame, anchored to the bottom so the dark strip
+   along the top of the footage sits just outside the frame */
+.stepper-screen.is-video { background: #04161b; }
+.stepper-screen.is-video video { position: absolute; left: 0; bottom: 0; width: 100%; height: 107%; object-fit: cover; object-position: center bottom; }
 .stepper-screen.is-scroll { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .stepper-screen.is-scroll iframe { height: var(--h, 900px); }
 .stepper-screen.is-scroll .stepper-sizer { display: block; height: calc(var(--h, 900px) * var(--s, .5)); }
@@ -2122,7 +2129,7 @@ body.proto-open { overflow: hidden; }
 /* Ambient network behind the page (ambient.js). Content sections and cards
    sit on their own layer above it. */
 main, section, footer, .project-app, .testimonial, .contact-row { position: relative; z-index: 1; }
-.ambient-net { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; transition: opacity .3s linear; }
+.ambient-net { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; transition: opacity .3s linear, filter .5s ease; }
 
 /* ---------- Back to top ---------- */
 .to-top {
@@ -2153,7 +2160,7 @@ main, section, footer, .project-app, .testimonial, .contact-row { position: rela
 .to-top-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
 .to-top-ring circle { fill: none; stroke-width: 2; }
 .to-top-track { stroke: #eee8ec; }
-.to-top-progress { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset .1s linear; }
+.to-top-progress { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset .1s linear, stroke .3s ease; }
 .to-top-arrow { position: relative; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- Contact on a full-width black band ---------- */
@@ -2169,8 +2176,9 @@ main, section, footer, .project-app, .testimonial, .contact-row { position: rela
   transform: translateX(-50%);
   z-index: -1;
   background: #170c14;
+  transition: background .4s ease;
 }
-.cta .highlight { color: #d9c2d3; }
+.cta .highlight { color: #d9c2d3; transition: color .4s ease; }
 .cta .availability { color: rgba(255, 255, 255, .55); }
 .cta-text p:not(.availability) { color: rgba(255, 255, 255, .68); }
 .cta .btn-secondary { background: transparent; color: var(--white); border-color: rgba(255, 255, 255, .35); }
@@ -2367,8 +2375,8 @@ main, section, footer, .project-app, .testimonial, .contact-row { position: rela
 .accent-theme .logo:hover { color: var(--accent); }
 .accent-theme .header nav a[aria-current] { color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); }
 .accent-theme .header nav a[aria-current]:hover { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
-.accent-theme .cta::before { background: #0b1f33; }
-.accent-theme .cta .highlight { color: #a9c1dc; }
+.accent-theme .cta::before { background: var(--cta-bg, #0b1f33); }
+.accent-theme .cta .highlight { color: var(--cta-highlight, #a9c1dc); }
 .accent-theme .proto, .accent-theme .live { --accent: #2d5b8c; }
 .fake-check.is-outline { width: 16px; height: 16px; border-radius: 4px; background: #fff; border: 1.5px solid #1f2a33; box-sizing: border-box; }
 .fake-check.is-outline svg { width: 12px; height: 12px; stroke: #1f2a33; }
@@ -2383,3 +2391,135 @@ main, section, footer, .project-app, .testimonial, .contact-row { position: rela
 .fake-check.is-light { background: transparent; border-color: #fff; }
 .fake-check.is-light svg { stroke: #fff; }
 .fake-btn.is-issue { border-radius: 4px; background: #07864f; font-size: 13px; font-weight: 650; }
+
+/* TV mockup: a single screen in a bezel on a stand, over a light backdrop tinted with the design's teal */
+.screen.is-tv, .tv-stage {
+  padding: 4% 10%;
+  background:
+    radial-gradient(ellipse 60% 35% at 50% 92%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
+    radial-gradient(ellipse at 20% 10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 55%),
+    linear-gradient(180deg, #f4f8f9 0%, #e3eef0 100%);
+}
+/* The same TV on a case study page, as the overview's wide visual */
+.tv-stage { padding: clamp(32px, 5vw, 80px) 16%; border-radius: 24px; }
+.tv { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.tv-body {
+  width: 100%;
+  padding: 1.2%;
+  background: #0b0d0f;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(4, 22, 27, .12), 0 20px 45px -10px rgba(4, 22, 27, .35), 0 30px 70px -20px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+.tv-body img, .screen .tv-body img { display: block; width: 100%; height: auto; max-width: none; border-radius: 3px; }
+.tv-neck { width: 6%; aspect-ratio: 2 / 1; background: linear-gradient(#1a1d20, #0b0d0f); }
+/* TV that links to a video: a caption below it */
+.tv-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.tv-caption svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform .25s ease; }
+.tv-watch:hover .tv-caption svg { transform: translate(2px, -2px); }
+.tv-watch:focus-visible { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: 12px; }
+.tv-base { width: 28%; height: 6px; border-radius: 6px; background: #0b0d0f; box-shadow: 0 8px 16px -4px rgba(4, 22, 27, .3); }
+
+/* Homepage: while a project card is hovered, focused or tapped, the page
+   previews that project's case study: the background network goes gray, and
+   everything else on the page (header, other cards, contact band, back-to-top
+   ring) takes the project's colors. projects.js sets the --project-* values
+   from the card. */
+html:has(.project-app:is(:hover, :has(:focus-visible))) .ambient-net { filter: grayscale(1); }
+html:has(.project-app:is(:hover, :has(:focus-visible))) body,
+html:has(.project-app:is(:hover, :has(:focus-visible))) .project-app { --accent: var(--project-accent) !important; }
+html:has(.project-app:is(:hover, :has(:focus-visible))) .cta::before { background: var(--project-cta-bg); }
+html:has(.project-app:is(:hover, :has(:focus-visible))) .cta .highlight { color: var(--project-cta-highlight); }
+html:has(.project-app:is(:hover, :has(:focus-visible))) .logo-slot {
+  background: color-mix(in srgb, var(--project-accent) 8%, transparent);
+  border-color: color-mix(in srgb, var(--project-accent) 16%, transparent);
+  color: var(--project-accent);
+}
+html:has(.project-app:is(:hover, :has(:focus-visible))) .header nav a[href="#work"] {
+  color: var(--project-accent);
+  background: color-mix(in srgb, var(--project-accent) 9%, transparent);
+}
+html:has(.project-app:is(:hover, :has(:focus-visible))) .to-top-progress { stroke: var(--project-accent); }
+
+/* Project summary dialog: for a project without a case study page, its card
+   opens this instead (projects.js) */
+button.app-link { padding: 0; border: 0; background: none; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+body:has(dialog.project-modal[open]) { overflow: hidden; }
+.project-modal {
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  padding: clamp(28px, 4vw, 44px);
+  border: 0;
+  border-radius: 24px;
+  background: var(--white);
+  color: var(--text);
+  box-shadow: 0 40px 120px -20px rgba(20, 16, 22, .45);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.project-modal[open] { animation: pop-in .3s cubic-bezier(.2, .7, .2, 1); }
+.project-modal::backdrop { background: rgba(20, 16, 22, .55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.project-modal[open]::backdrop { animation: fade-in .25s ease; }
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #f3f2f4;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .2s;
+}
+.modal-close:hover { background: #e8e6ea; }
+.modal-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.modal-title { margin: 0; font-size: clamp(32px, 3.4vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+.modal-title sup { font-size: .4em; }
+.modal-lede { margin: 10px 0 0; font-size: 18px; line-height: 1.5; color: var(--text-2); }
+.modal-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.modal-status .avail-dot { background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 15%, transparent); }
+.modal-intro { margin: 28px 0 0; font-size: 16px; color: var(--text-2); }
+.modal-list { margin: 16px 0 0; padding: 0; list-style: none; counter-reset: initiative; display: grid; gap: 14px; }
+.modal-list li {
+  counter-increment: initiative;
+  position: relative;
+  padding: 18px 20px 18px 60px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--accent) 14%, #ebeef3);
+  background: color-mix(in srgb, var(--accent) 3%, white);
+}
+.modal-list li::before {
+  content: counter(initiative, decimal-leading-zero);
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.modal-list h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; line-height: 1.35; }
+.modal-list p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text-2); }
+.modal-cta { margin-top: 28px; }
