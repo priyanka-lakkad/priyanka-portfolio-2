@@ -2523,3 +2523,171 @@ body:has(dialog.project-modal[open]) { overflow: hidden; }
 .modal-list h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; line-height: 1.35; }
 .modal-list p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text-2); }
 .modal-cta { margin-top: 28px; }
+
+/* ComplyOne context diagram: IT, HR and Compliance as a triangle with broken
+   links between them, around a hub that no one could see. Cards sit on a
+   fixed-ratio stage so the lines (drawn in the same 100×60 space) meet the
+   card centres. */
+.triad-stage { position: relative; aspect-ratio: 5 / 3; }
+.triad-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.triad-lines line { stroke: #d9837d; stroke-width: 1.5; stroke-dasharray: 2 7; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.triad-card {
+  position: absolute;
+  width: 29%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 16px 18px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, white);
+  border-top: 3px solid var(--accent);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 20px 36px -26px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.triad-head { display: flex; align-items: center; gap: 10px; }
+.triad-head strong { font-size: 16px; font-weight: 700; color: var(--text); }
+.triad-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 10%, white); color: var(--accent); }
+.triad-icon svg, .pg-icon svg, .triad-hub-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.triad-card > span { font-size: 13px; line-height: 1.55; color: var(--text-2); }
+.triad-card.is-it { left: 50%; top: 23.33%; }
+.triad-card.is-hr { left: 20%; top: 63%; transform: translate(-50%, 0); }
+.triad-card.is-compliance { left: 80%; top: 63%; transform: translate(-50%, 0); border-color: #efc3bf; border-top-color: #c8423a; box-shadow: 0 20px 36px -26px rgba(200, 66, 58, .7); }
+.triad-card.is-compliance .triad-icon { background: #fdf1f0; color: #c8423a; }
+.triad-hub {
+  position: absolute;
+  left: 50%;
+  top: 56.67%;
+  width: 19%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1.5px dashed #d9837d;
+  background: #fffafa;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.triad-hub-icon { color: #c8423a; margin-bottom: 4px; }
+.triad-hub strong { font-size: 13px; font-weight: 700; color: #7d2722; line-height: 1.25; }
+.triad-hub > span:last-child { font-size: 11px; line-height: 1.35; color: var(--text-2); }
+.triad-break-at { position: absolute; transform: translate(-50%, -50%); }
+.triad-break-at.is-left { left: 35%; top: 50.83%; }
+.triad-break-at.is-right { left: 65%; top: 50.83%; }
+.triad-break-at.is-bottom { left: 50%; top: 78.33%; }
+.triad-break {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #c8423a;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 0 0 4px var(--white), 0 0 0 5px #efc3bf;
+}
+@media (max-width: 900px) {
+  .triad-stage { aspect-ratio: auto; display: grid; gap: 14px; }
+  .triad-lines, .triad-break-at { display: none; }
+  .triad-card, .triad-hub { position: static; width: auto; transform: none; }
+  .triad-hub { order: 4; aspect-ratio: auto; flex-direction: row; gap: 8px; border-radius: 12px; padding: 12px; }
+  .triad-hub-icon { margin: 0; }
+}
+
+/* ComplyOne interview participants: the total, then one figure per person
+   in each group */
+.pg { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); align-items: center; }
+.pg-total { display: flex; flex-direction: column; gap: 8px; padding-right: clamp(16px, 2.5vw, 36px); border-right: 1px solid #f0ebee; }
+.pg-total strong { font-size: clamp(48px, 5vw, 72px); font-weight: 800; line-height: 1; letter-spacing: -.03em; color: var(--accent); }
+.pg-total span { font-size: 14px; line-height: 1.5; color: var(--text-2); }
+.pg-rows { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
+.pg-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.pg-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 10%, white); color: var(--accent); }
+.pg-label { font-size: 14px; font-weight: 700; color: var(--text); }
+.pg-count { margin-left: auto; font-size: 14px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+.pg-people { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 6px; }
+.pg-people svg { display: block; width: 100%; max-width: 22px; height: auto; fill: var(--accent); }
+.pg-row.is-it .pg-people svg { fill: color-mix(in srgb, var(--accent) 65%, white); }
+.pg-row.is-hr .pg-people svg { fill: color-mix(in srgb, var(--accent) 40%, white); }
+.pg-row.is-it .pg-icon, .pg-row.is-it .pg-count { color: color-mix(in srgb, var(--accent) 80%, white); }
+@media (max-width: 900px) {
+  .pg { grid-template-columns: minmax(0, 1fr); }
+  .pg-total { flex-direction: row; align-items: baseline; gap: 12px; padding: 0 0 16px; border-right: 0; border-bottom: 1px solid #f0ebee; }
+}
+
+/* ComplyOne key learnings: each research finding, an arrow, and the product
+   priority it became. Then the "How might we" statement. */
+.kl-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 18px; }
+.case-section .kl-title { margin: 0; font-size: 15px; font-weight: 700; color: var(--text); }
+.kl-cols { display: none; }
+.kl-rows { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: kl; }
+.kl-row { display: grid; grid-template-columns: minmax(0, 1.7fr) 24px minmax(0, 1fr); align-items: stretch; gap: 14px; }
+.kl-learning {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px 16px 52px;
+  border-radius: 14px;
+  background: #faf8f5;
+  border: 1px solid #efeae3;
+}
+.kl-learning::before {
+  counter-increment: kl;
+  content: counter(kl, decimal-leading-zero);
+  position: absolute;
+  top: 17px;
+  left: 18px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #c8423a;
+  font-variant-numeric: tabular-nums;
+}
+.kl-learning strong { font-size: 15px; font-weight: 700; color: var(--text); }
+.kl-learning span { font-size: 13px; line-height: 1.55; color: var(--text-2); }
+.kl-arrow { align-self: center; width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.kl-priority {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 8%, white);
+  border: 1px solid color-mix(in srgb, var(--accent) 26%, white);
+}
+.kl-tag { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.kl-priority strong { font-size: 14px; font-weight: 700; line-height: 1.35; color: var(--text); }
+
+.hmw {
+  position: relative;
+  margin: 24px 0 0;
+  padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 52px);
+  border-radius: 20px;
+  background: var(--accent);
+  color: var(--white);
+  overflow: hidden;
+}
+.hmw::after {
+  content: "?";
+  position: absolute;
+  right: clamp(12px, 3vw, 36px);
+  bottom: -.28em;
+  font-size: clamp(140px, 16vw, 220px);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, .07);
+  pointer-events: none;
+}
+.hmw-label { display: block; margin-bottom: 14px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .7); }
+.case-section .hmw p { position: relative; margin: 0; max-width: 30ch; font-size: clamp(22px, 2.3vw, 32px); font-weight: 700; line-height: 1.3; letter-spacing: -.015em; color: var(--white); }
+.hmw u { text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .55); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+@media (max-width: 900px) {
+  .kl-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .kl-arrow { justify-self: center; transform: rotate(90deg); }
+}

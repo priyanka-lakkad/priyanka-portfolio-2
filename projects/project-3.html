@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project title — Priyanka Lakkad</title>
+  <title>ComplyOne — Priyanka Lakkad</title>
   <meta name="description" content="One-line summary of the project.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=245">
+  <link rel="stylesheet" href="../styles.css?v=271">
   <script>document.documentElement.classList.add("js");</script>
 </head>
-<body class="case-page" style="--accent: #2f6f62">
+<body class="case-page accent-theme" style="--accent: #2f6f62">
   <!--
     CASE STUDY TEMPLATE
     Every project page uses this same structure. To fill one in, replace the
@@ -38,21 +38,55 @@
     <section class="container case-hero">
       <a class="back-link" href="../index.html#work">← All work</a>
       <p class="panel-kicker">Company · Year</p>
-      <h1>Project title goes here</h1>
+      <h1>ComplyOne</h1>
       <p class="case-lede">One or two sentences on what the product is, who it serves, and what you designed.</p>
+      <dl class="case-facts">
+        <div><dt class="cred-label">Role</dt><dd>Your role</dd></div>
+        <div><dt class="cred-label">Timeline</dt><dd>Duration</dd></div>
+        <div><dt class="cred-label">Industry</dt><dd>Industry</dd></div>
+        <div><dt class="cred-label">Focus</dt><dd>Your focus</dd></div>
+      </dl>
     </section>
 
-    <!-- Details strip -->
-    <section class="container case-meta" data-reveal>
-      <div><h2 class="cred-label">Role</h2><p class="cred-value">Your role</p></div>
-      <div><h2 class="cred-label">Team</h2><p class="cred-value">Who you worked with</p></div>
-      <div><h2 class="cred-label">Timeline</h2><p class="cred-value">Duration</p></div>
-      <div><h2 class="cred-label">Platform</h2><p class="cred-value">Web app, desktop</p></div>
-    </section>
-
-    <!-- Hero screen -->
-    <section class="container" data-reveal>
-      <div class="media media-hero"><span>Hero screen (16:10)</span></div>
+    <!-- Project overview: a wide visual on top, then the overview in a 2x2 grid -->
+    <section class="container case-overview overview-wide" id="overview">
+      <div class="overview-media">
+        <!-- Same browser frame as ProcureFlow. To show the live prototype, put its URL in the iframe's data-src -->
+        <div class="live live-hero" data-live>
+          <div class="proto-frame">
+            <div class="proto-bar"><span></span><span></span><span></span>
+              <span class="live-badge"><i></i>Live prototype</span>
+              <button class="proto-expand" type="button" aria-label="Expand prototype" data-expand>
+                <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>
+                <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              </button>
+            </div>
+            <div class="live-stage">
+              <span class="live-loading">ComplyOne prototype goes here</span>
+              <iframe data-src="" title="ComplyOne interactive prototype" referrerpolicy="no-referrer"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overview-text">
+        <p class="case-num">01 · Project Overview</p>
+        <div class="case-sub" id="overview-problem">
+          <h3>The Problem</h3>
+          <p>Compliance teams lacked a reliable view of organizational audit readiness. Training gaps, incorrect system access, unresolved exceptions, and missing evidence were often discovered too close to an audit, creating operational disruption and regulatory risk.</p>
+        </div>
+        <div class="case-sub" id="overview-solution">
+          <h3>The Solution</h3>
+          <p>ComplyOne continuously evaluates audit readiness by connecting employee roles, training requirements, system permissions, exceptions, and compliance evidence. It provides compliance leaders with a centralized and actionable view of readiness before an audit begins.</p>
+        </div>
+        <div class="case-sub" id="overview-impact">
+          <h3>The Impact</h3>
+          <p>The solution transformed audit preparation from a reactive and fragmented exercise into a continuous, structured, and traceable operating model. Teams could assess readiness earlier, coordinate remediation more effectively, and enter audits with greater confidence.</p>
+        </div>
+        <div class="case-sub" id="overview-role">
+          <h3>My Role</h3>
+          <p>I led the product design process across discovery, research synthesis, journey mapping, workflow definition, information architecture, prototyping, and validation. I translated complex compliance requirements into a coherent product strategy and aligned cross-functional stakeholders around a scalable vision for continuous audit readiness.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Story with a sticky section menu (left on desktop, top bar on phones) -->
@@ -61,77 +95,160 @@
         <div class="toc-head"><p class="cred-label">On this page</p></div>
         <ol id="case-toc">
           <span class="toc-marker" aria-hidden="true"></span>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#problem">Problem</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#insights">Insights</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="#overview">Project Overview</a></li>
           <li><a href="#solution">Solution</a></li>
-          <li><a href="#outcomes">Outcomes</a></li>
+          <li><a href="#discovery">Discovery</a>
+            <ol class="toc-sub">
+              <li><a href="#discovery-gaps">Control Gaps</a></li>
+              <li><a href="#discovery-interviews">Stakeholder Interviews</a></li>
+              <li><a href="#discovery-scope">Scope &amp; Prioritization</a></li>
+            </ol>
+          </li>
+          <li><a href="#platform">ComplyOne Platform</a>
+            <ol class="toc-sub">
+              <li><a href="#platform-access">Role Based Access</a></li>
+              <li><a href="#platform-exceptions">Exception Governance</a></li>
+              <li><a href="#platform-approval">Approval &amp; Escalation</a></li>
+              <li><a href="#platform-dashboard">AI Powered Compliance Dashboard</a></li>
+            </ol>
+          </li>
+          <li><a href="#impact">Impact</a></li>
           <li><a href="#reflection">Reflection</a></li>
         </ol>
       </nav>
 
       <div class="case-content">
+        <section class="case-section" id="solution" data-reveal>
+          <p class="case-num">02 · Solution</p>
+          <p>A quick look at the final design before the story of how you got there.</p>
+          <div class="media"><span>Solution screen (16:10)</span></div>
+        </section>
+        <section class="case-section" id="discovery" data-reveal>
+          <p class="case-num">03 · Discovery</p>
+            <div class="case-sub" id="discovery-gaps">
+              <h3>Control Gaps</h3>
+              <p>Compliance had to follow certain industry standards but they were not able to monitor compliance due to fragmented systems leading to lack of visibility of what was going wrong.</p>
+              <!-- Context diagram: three teams that each held part of the picture, with broken hand-offs between them -->
+              <figure class="flow-figure triad" aria-label="IT, HR, and Compliance each held part of the compliance picture. The links between all three were broken, so no one had a shared view of what was going wrong.">
+                <div class="triad-stage">
+                  <svg class="triad-lines" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+                    <line x1="50" y1="14" x2="20" y2="47"/><line x1="50" y1="14" x2="80" y2="47"/><line x1="20" y1="47" x2="80" y2="47"/>
+                  </svg>
+                  <div class="triad-hub"><span class="triad-hub-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6c1.6 0 3 .5 4.2 1.2M21 12s-3.5 6-9 6c-1.6 0-3-.5-4.2-1.2"/><path d="M4 20 20 4"/></svg></span><strong>No shared view</strong><span>of what was going wrong</span></div>
+                  <div class="triad-card is-it"><div class="triad-head"><span class="triad-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="10" r="2"/></svg></span><strong>IT</strong></div><span>Grants or removes system access based on HR and training data to ensure secure and compliant operations.</span></div>
+                  <div class="triad-card is-hr"><div class="triad-head"><span class="triad-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.6.2 4.4 1.8 5 4.8"/></svg></span><strong>HR</strong></div><span>Manages employee info and training data to maintain accurate records, and support access &amp; compliance decisions.</span></div>
+                  <div class="triad-card is-compliance"><div class="triad-head"><span class="triad-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><strong>Compliance</strong></div><span>Monitors and enforces compliance rules, ensuring audit readiness and risk control.</span></div>
+                  <span class="triad-break-at is-left"><span class="triad-break" aria-hidden="true">!</span></span>
+                  <span class="triad-break-at is-right"><span class="triad-break" aria-hidden="true">!</span></span>
+                  <span class="triad-break-at is-bottom"><span class="triad-break" aria-hidden="true">!</span></span>
+                </div>
+                <figcaption class="flow-caption">Each team held part of the picture. With the hand-offs between them broken, Compliance couldn’t see gaps until they surfaced.</figcaption>
+              </figure>
+            </div>
+            <div class="case-sub" id="discovery-interviews">
+              <h3>Stakeholder Interviews</h3>
+              <p>I wanted to better understand the problem, so I worked with researchers to identify and shortlist key people to interview, which included compliance managers, IT specialists, and HR professionals across the company.</p>
+              <!-- Interview participants: one figure per person -->
+              <figure class="flow-figure participants" aria-label="25 stakeholders interviewed: 15 compliance managers, 5 IT specialists, and 5 HR professionals">
+                <div class="pg">
+                  <div class="pg-total"><strong>25</strong><span>stakeholders interviewed across three functions</span></div>
+                  <ul class="pg-rows">
+                    <li class="pg-row is-co">
+                      <div class="pg-meta"><span class="pg-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="pg-label">Compliance Managers</span><strong class="pg-count">15</strong></div>
+                      <div class="pg-people" aria-hidden="true"><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg></div>
+                    </li>
+                    <li class="pg-row is-it">
+                      <div class="pg-meta"><span class="pg-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="10" r="2"/></svg></span><span class="pg-label">IT Specialists</span><strong class="pg-count">5</strong></div>
+                      <div class="pg-people" aria-hidden="true"><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg></div>
+                    </li>
+                    <li class="pg-row is-hr">
+                      <div class="pg-meta"><span class="pg-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.6.2 4.4 1.8 5 4.8"/></svg></span><span class="pg-label">HR Professionals</span><strong class="pg-count">5</strong></div>
+                      <div class="pg-people" aria-hidden="true"><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg><svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="6" r="4.5"/><path d="M1.5 23c0-5.2 3.8-9 8.5-9s8.5 3.8 8.5 9z"/></svg></div>
+                    </li>
+                  </ul>
+                </div>
+              </figure>
+            </div>
+            <div class="case-sub" id="discovery-scope">
+              <h3>Scope &amp; Prioritization</h3>
+              <p>I converted the research into three strategic product priorities: policy-driven access governance, structured escalation workflows, and centralized readiness visibility. This focused the three-month engagement on the highest-risk control failures while establishing a scalable foundation for broader compliance operations.</p>
+              <!-- Key learnings, each paired with the product priority it led to -->
+              <figure class="flow-figure learnings">
+                <div class="kl-head"><p class="kl-title">Key learnings that shaped the product vision</p><span class="kl-cols" aria-hidden="true"><span>What we learned</span><span>What we prioritized</span></span></div>
+                <ol class="kl-rows">
+                  <li class="kl-row">
+                    <div class="kl-learning"><strong>Premature System Access</strong><span>System access was granted before training completion due to disconnected HR, IT, and Training systems.</span></div>
+                    <svg class="kl-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    <div class="kl-priority"><span class="kl-tag">Priority</span><strong>Policy-driven access governance</strong></div>
+                  </li>
+                  <li class="kl-row">
+                    <div class="kl-learning"><strong>Manual Escalations</strong><span>Compliance and IT teams manually identified approvers for escalations and followed up through emails, making the process hard to track.</span></div>
+                    <svg class="kl-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    <div class="kl-priority"><span class="kl-tag">Priority</span><strong>Structured escalation workflows</strong></div>
+                  </li>
+                  <li class="kl-row">
+                    <div class="kl-learning"><strong>Limited Risk Visibility</strong><span>Scattered data made it hard for managers to see and address risks.</span></div>
+                    <svg class="kl-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    <div class="kl-priority"><span class="kl-tag">Priority</span><strong>Centralized readiness visibility</strong></div>
+                  </li>
+                </ol>
+              </figure>
+              <blockquote class="hmw">
+                <span class="hmw-label">Design challenge</span>
+                <p>How might we create a <u>connected workflow</u> that ensures every compliance action is <u>visible, owned, and verifiable</u> before an audit?</p>
+              </blockquote>
+            </div>
+        </section>
+        <section class="case-section" id="platform" data-reveal>
+          <p class="case-num">04 · ComplyOne Platform</p>
+          <p>A walkthrough of the ComplyOne platform.</p>
+            <div class="case-sub" id="platform-access">
+              <h3>Role Based Access</h3>
+              <p>How access is scoped by role, and the decision behind it.</p>
+              <div class="media"><span>Role based access screen (16:10)</span></div>
+            </div>
+            <div class="case-sub" id="platform-exceptions">
+              <h3>Exception Governance</h3>
+              <p>How exceptions are raised, reviewed, and tracked.</p>
+              <div class="media"><span>Exception governance screen (16:10)</span></div>
+            </div>
+            <div class="case-sub" id="platform-approval">
+              <h3>Approval &amp; Escalation</h3>
+              <p>How approvals route and when they escalate.</p>
+              <div class="media"><span>Approval &amp; escalation screen (16:10)</span></div>
+            </div>
+            <div class="case-sub" id="platform-dashboard">
+              <h3>AI Powered Compliance Dashboard</h3>
+              <p>What the dashboard surfaces and how AI helps teams act on it.</p>
+              <div class="media"><span>Compliance dashboard screen (16:10)</span></div>
+            </div>
+        </section>
         <section class="case-section" id="impact" data-reveal>
-          <div class="case-impact">
-            <div class="impact"><span class="metric-num">00%</span><span class="metric-label">Impact metric</span></div>
-            <div class="impact"><span class="metric-num">00%</span><span class="metric-label">Impact metric</span></div>
-            <div class="impact"><span class="metric-num">00</span><span class="metric-label">Impact metric</span></div>
+          <p class="case-num">05 · Impact</p>
+          <p>How you measured the results, and what you compared against.</p>
+          <div class="case-impact is-two">
+            <div class="impact">
+              <span class="metric-num">00%</span>
+              <span class="metric-label">Impact metric</span>
+            </div>
+            <div class="impact">
+              <span class="metric-num">00%</span>
+              <span class="metric-label">Impact metric</span>
+            </div>
           </div>
         </section>
-        <section class="case-section" id="problem" data-reveal>
-          <p class="case-num">01 · Problem</p>
-          <p>Describe the current state: what was broken, for whom, and why it mattered to the business. Keep it to two or three short paragraphs.</p>
-          <p>Add the constraints you were working within, such as legacy systems, compliance, or timelines.</p>
-        </section>
-        <section class="case-section" id="research" data-reveal>
-          <p class="case-num">02 · Research</p>
-          <p>Methods you used (interviews, workflow mapping, data analysis, competitive review) and who you spoke to.</p>
-          <div class="media"><span>Research artifact (journey map, workflow diagram)</span></div>
-        </section>
-        <section class="case-section" id="insights" data-reveal>
-          <p class="case-num">03 · Insights</p>
-          <ol class="insights">
-            <li><strong>Insight one</strong><span>One or two lines explaining it and why it mattered.</span></li>
-            <li><strong>Insight two</strong><span>One or two lines explaining it and why it mattered.</span></li>
-            <li><strong>Insight three</strong><span>One or two lines explaining it and why it mattered.</span></li>
-          </ol>
-        </section>
-        <section class="case-section" id="process" data-reveal>
-          <p class="case-num">04 · Process</p>
-          <ol class="flow">
-            <li><span class="node"></span><strong>Research</strong><span>What you learned</span></li>
-            <li><span class="node"></span><strong>Define</strong><span>The key decision</span></li>
-            <li><span class="node"></span><strong>Design</strong><span>What you built</span></li>
-            <li><span class="node"></span><strong>Validate</strong><span>How you tested it</span></li>
-          </ol>
-          <p>A short paragraph on how you iterated, what you tested, and what changed along the way.</p>
-        </section>
-        <section class="case-section" id="solution" data-reveal>
-          <p class="case-num">05 · Solution</p>
-          <p>Walk through the main parts of the design. For each one, show the screen and explain the decision behind it.</p>
-          <figure class="feature">
-            <div class="media"><span>Feature screen 1 (16:10)</span></div>
-            <figcaption><strong>Feature name</strong><span>Why it was designed this way and the problem it solves.</span></figcaption>
-          </figure>
-          <figure class="feature">
-            <div class="media"><span>Feature screen 2 (16:10)</span></div>
-            <figcaption><strong>Feature name</strong><span>Why it was designed this way and the problem it solves.</span></figcaption>
-          </figure>
-          <figure class="feature">
-            <div class="media"><span>Feature screen 3 (16:10)</span></div>
-            <figcaption><strong>Feature name</strong><span>Why it was designed this way and the problem it solves.</span></figcaption>
-          </figure>
-        </section>
-        <section class="case-section" id="outcomes" data-reveal>
-          <p class="case-num">06 · Outcomes</p>
-          <p>The results in numbers and in people's words: adoption, time saved, errors reduced, quotes from users or stakeholders.</p>
-          <blockquote class="quote">“A short quote from a user or stakeholder about the impact.”<cite>Name, Role</cite></blockquote>
-        </section>
         <section class="case-section" id="reflection" data-reveal>
-          <p class="case-num">07 · Reflection</p>
-          <p>What went well, what you would do differently, and what you'd explore next.</p>
+          <p class="case-num">06 · Reflection</p>
+          <div class="reflect-grid">
+            <div class="reflect-col" id="reflection-worked">
+              <h3>What Worked Well</h3>
+              <p>What went well and why.</p>
+            </div>
+            <div class="reflect-col" id="reflection-next">
+              <h3>Next Steps</h3>
+              <p>What you would do differently, and what you'd explore next.</p>
+            </div>
+          </div>
         </section>
       </div>
     </div>
@@ -186,7 +303,8 @@
 
   <script src="../contact.js?v=1"></script>
   <script src="../scroll.js?v=10"></script>
-  <script src="../logo.js?v=10"></script>
+  <script src="../logo.js?v=12"></script>
+  <script src="../live.js?v=2"></script>
   <script src="../case.js?v=8"></script>
 </body>
 </html>
