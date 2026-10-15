@@ -2599,26 +2599,18 @@ body:has(dialog.project-modal[open]) { overflow: hidden; }
   .triad-hub-icon { margin: 0; }
 }
 
-/* ComplyOne interview participants: the total, then one bar per function,
-   each as wide as its share of the 25, labeled underneath */
-.pg-total { display: flex; align-items: baseline; gap: 14px; margin-bottom: 26px; }
-.pg-total strong { font-size: clamp(44px, 4.4vw, 64px); font-weight: 800; line-height: 1; letter-spacing: -.03em; color: var(--accent); }
-.pg-total span { font-size: 15px; line-height: 1.5; color: var(--text-2); }
-.pg-groups { --c: var(--accent); display: grid; grid-template-columns: 15fr 5fr 5fr; gap: clamp(14px, 2vw, 28px); margin: 0; padding: 0; list-style: none; }
-.pg-group { --c: var(--accent); min-width: 0; }
-.pg-group.is-it { --c: color-mix(in srgb, var(--accent) 62%, white); }
-.pg-group.is-hr { --c: color-mix(in srgb, var(--accent) 38%, white); }
-.pg-bar { height: 14px; border-radius: 999px; background: var(--c); }
-.pg-meta { display: flex; flex-direction: column; gap: 6px; padding-top: 12px; }
-.pg-count { font-size: 26px; font-weight: 800; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
-.pg-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; line-height: 1.3; color: var(--text-2); }
-.pg-icon { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: color-mix(in srgb, var(--accent) 10%, white); color: var(--accent); }
-.pg-icon svg { width: 15px; height: 15px; }
-@media (max-width: 700px) {
-  .pg-groups { grid-template-columns: minmax(0, 1fr); gap: 22px; }
-  .pg-bar { width: calc(var(--n) / 15 * 100%); }
-  .pg-meta { flex-direction: row; align-items: center; justify-content: space-between; }
-  .pg-count { order: 2; font-size: 20px; }
+/* ComplyOne interview participants: a filled total tile, then one tile per
+   function with its icon, count and label */
+.pg-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.pg-tile { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 20px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--accent) 16%, white); background: color-mix(in srgb, var(--accent) 4%, white); }
+.pg-tile strong { margin-top: 10px; font-size: clamp(36px, 3.4vw, 48px); font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--text); font-variant-numeric: tabular-nums; }
+.pg-tile > span:last-child { font-size: 14px; font-weight: 600; line-height: 1.35; color: var(--text-2); }
+.pg-tile.is-total { border-color: var(--accent); background: var(--accent); }
+.pg-tile.is-total strong, .pg-tile.is-total > span:last-child { color: var(--white); }
+.pg-kicker { display: flex; align-items: center; height: 30px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: color-mix(in srgb, var(--white) 75%, var(--accent)); }
+.pg-icon { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--white); color: var(--accent); }
+@media (max-width: 900px) {
+  .pg-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ComplyOne key learnings: each research finding, an arrow, and the product
