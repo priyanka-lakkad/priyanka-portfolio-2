@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=279">
+  <link rel="stylesheet" href="../styles.css?v=280">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="case-page accent-theme" style="--accent: #2f6f62">
@@ -41,9 +41,9 @@
       <h1>ComplyOne</h1>
       <p class="case-lede">One or two sentences on what the product is, who it serves, and what you designed.</p>
       <dl class="case-facts">
-        <div><dt class="cred-label">Role</dt><dd>Your role</dd></div>
-        <div><dt class="cred-label">Timeline</dt><dd>Duration</dd></div>
-        <div><dt class="cred-label">Industry</dt><dd>Industry</dd></div>
+        <div><dt class="cred-label">Role</dt><dd>Product Design</dd></div>
+        <div><dt class="cred-label">Timeline</dt><dd>3 months</dd></div>
+        <div><dt class="cred-label">Industry</dt><dd>Pharmaceutical company</dd></div>
         <div><dt class="cred-label">Focus</dt><dd>Your focus</dd></div>
       </dl>
     </section>
@@ -51,19 +51,13 @@
     <!-- Project overview: a wide visual on top, then the overview in a 2x2 grid -->
     <section class="container case-overview overview-wide" id="overview">
       <div class="overview-media">
-        <!-- Same browser frame as ProcureFlow. To show the live prototype, put its URL in the iframe's data-src -->
-        <div class="live live-hero" data-live>
+        <!-- Full-length screenshot of the dashboard that scrolls inside the browser frame (not a live prototype) -->
+        <div class="live live-hero">
           <div class="proto-frame">
-            <div class="proto-bar"><span></span><span></span><span></span>
-              <span class="live-badge"><i></i>Live prototype</span>
-              <button class="proto-expand" type="button" aria-label="Expand prototype" data-expand>
-                <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>
-                <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-              </button>
-            </div>
-            <div class="live-stage">
-              <span class="live-loading">ComplyOne prototype goes here</span>
-              <iframe data-src="" title="ComplyOne interactive prototype" referrerpolicy="no-referrer"></iframe>
+            <div class="proto-bar"><span></span><span></span><span></span></div>
+            <div class="shot-scroll" tabindex="0" aria-label="Scrollable screenshot of the ComplyOne compliance overview">
+              <span class="stepper-hint" aria-hidden="true">Scroll to explore</span>
+              <img src="../images/complyone-dashboard-full.png" alt="ComplyOne compliance overview: compliance score, training completion, open exceptions, audit readiness, a performance chart, priority risks, upcoming deadlines, and escalations" width="1440" height="1008">
             </div>
           </div>
         </div>
@@ -461,5 +455,10 @@
   <script src="../proto.js?v=12"></script>
   <script src="../stepper.js?v=6"></script>
   <script src="../case.js?v=8"></script>
+  <script>
+    // Hero screenshot: hide the scroll hint once someone scrolls it
+    document.querySelectorAll(".shot-scroll").forEach((el) =>
+      el.addEventListener("scroll", () => el.classList.toggle("is-scrolled", el.scrollTop > 8), { passive: true }));
+  </script>
 </body>
 </html>

@@ -2766,3 +2766,8 @@ body:has(dialog.project-modal[open]) { overflow: hidden; }
 /* ...and its next action stays hidden until the box is ticked */
 .proto-live .proto-screen[data-pan]:has([data-check]):not(.is-checked) .proto-hot[data-next],
 .proto-live .proto-screen[data-pan]:has([data-check]):not(.is-checked) .proto-zone.for-next { opacity: 0; pointer-events: none; }
+
+/* Case hero screenshot that scrolls inside the browser frame */
+.shot-scroll { position: relative; aspect-ratio: 16 / 10; overflow-y: auto; overscroll-behavior: contain; background: #f6f7fa; }
+.shot-scroll img { display: block; width: 100%; height: auto; }
+.shot-scroll.is-scrolled .stepper-hint { opacity: 0; }
