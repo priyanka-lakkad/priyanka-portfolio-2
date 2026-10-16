@@ -2447,7 +2447,7 @@ main, section, footer, .project-app, .testimonial, .contact-row { position: rela
 .accent-theme .header nav a[aria-current]:hover { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
 .accent-theme .cta::before { background: var(--cta-bg, #0b1f33); }
 .accent-theme .cta .highlight { color: var(--cta-highlight, #a9c1dc); }
-.accent-theme .proto, .accent-theme .live { --accent: #2d5b8c; }
+.accent-theme .proto, .accent-theme .live { --accent: var(--proto-accent, #2d5b8c); }
 .fake-check.is-outline { width: 16px; height: 16px; border-radius: 4px; background: #fff; border: 1.5px solid #1f2a33; box-sizing: border-box; }
 .fake-check.is-outline svg { width: 12px; height: 12px; stroke: #1f2a33; }
 .fake-btn.is-approve { background: #18784e; font-size: 13px; font-weight: 650; }
