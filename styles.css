@@ -261,7 +261,7 @@ a { color: inherit; text-decoration: none; }
 .video-col.is-playing .video-photo-fill { opacity: 0; }
 .video-col.is-playing .video-photo { opacity: 0; }
 /* Spoken captions: centered under the play control, only while playing */
-.live-caption {
+.hero-caption {
   position: absolute;
   top: calc(100% + 78px);
   left: 50%;
@@ -284,8 +284,8 @@ a { color: inherit; text-decoration: none; }
   transition: opacity .25s ease, transform .25s ease;
   pointer-events: none;
 }
-.video-col.is-playing .live-caption.has-cue { opacity: 1; transform: translate(-50%, 0); }
-@media (prefers-reduced-motion: reduce) { .live-caption, .video-photo, .video-photo-fill { transition: none; } }
+.video-col.is-playing .hero-caption.has-cue { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .hero-caption, .video-photo, .video-photo-fill { transition: none; } }
 /* Desktop: a bigger circle, and the hero text runs from the top of the circle
    to its bottom. The stage is only as tall as the circle, so both columns
    share one height; the ring canvas gets extra room above and below. */

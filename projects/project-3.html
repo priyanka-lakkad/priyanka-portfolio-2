@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=278">
+  <link rel="stylesheet" href="../styles.css?v=279">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="case-page accent-theme" style="--accent: #2f6f62">
@@ -332,15 +332,26 @@
                 </template>
               </div>
             </div>
-            <div class="case-sub" id="platform-approval">
-              <h3>Approval &amp; Escalation</h3>
-              <p>How approvals route and when they escalate.</p>
-              <div class="media"><span>Approval &amp; escalation screen (16:10)</span></div>
-            </div>
             <div class="case-sub" id="platform-dashboard">
               <h3>AI Powered Compliance Dashboard</h3>
               <p>What the dashboard surfaces and how AI helps teams act on it.</p>
-              <div class="media"><span>Compliance dashboard screen (16:10)</span></div>
+              <div class="live" data-live>
+                <div class="proto-frame">
+                  <div class="proto-bar"><span></span><span></span><span></span>
+                    <span class="live-badge"><i></i>Live prototype</span>
+                    <button class="proto-expand" type="button" aria-label="Expand prototype" data-expand>
+                      <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>
+                      <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                    </button>
+                  </div>
+                  <!-- Live prototype: updates automatically whenever the site is republished -->
+                  <div class="live-stage">
+                    <span class="live-loading">Loading prototype…</span>
+                    <iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/" title="ComplyOne interactive prototype" referrerpolicy="no-referrer"></iframe>
+                  </div>
+                </div>
+                <p class="proto-caption live-caption">The working prototype. Start from the overview, open a priority risk to see its action plan, or move to Access rules to build and commit a rule.</p>
+              </div>
             </div>
         </section>
         <section class="case-section" id="impact" data-reveal>
