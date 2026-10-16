@@ -240,7 +240,10 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 22%;
+  /* Face centered in the circle: crop a little lower in the photo (so the face
+     sits higher) and a slight zoom gives room to nudge it left to center */
+  object-position: 50% 36%;
+  transform: scale(1.04) translateX(-1.25%);
   transition: opacity .3s ease;
 }
 .video-col.is-playing .video-photo { opacity: 0; }
