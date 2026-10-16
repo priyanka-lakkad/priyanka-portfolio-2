@@ -292,7 +292,45 @@
             <div class="case-sub" id="platform-exceptions">
               <h3>Exception Governance</h3>
               <p>How exceptions are raised, reviewed, and tracked.</p>
-              <div class="media"><span>Exception governance screen (16:10)</span></div>
+              <!-- Click-through: from the live Access rules page to the exception form -->
+              <div class="proto proto-live proto-comply" data-proto>
+                <div class="proto-steps is-compact" role="tablist" aria-label="Exception governance flow">
+                  <button class="proto-step" role="tab" aria-selected="true" data-go="0">Access Rules</button>
+                  <button class="proto-step" role="tab" aria-selected="false" data-go="1">Add Exception</button>
+                </div>
+
+                <div class="proto-frame">
+                  <div class="proto-bar"><span></span><span></span><span></span>
+                    <button class="proto-expand" type="button" aria-label="Expand prototype" data-expand>
+                      <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>
+                      <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                    </button>
+                  </div>
+                  <div class="proto-screens">
+                    <div class="proto-screen is-active" data-screen="0" data-h="1088" data-pan="188">
+                      <iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/#access-rules" title="ComplyOne prototype: Access rules" referrerpolicy="no-referrer" tabindex="-1"></iframe>
+                      <button class="proto-hot" data-x="131" data-y="1029" data-zone="43,1012,177,34" data-next aria-label="Add policy exception"><span class="proto-tip">Add policy exception</span></button>
+                    </div>
+                    <div class="proto-screen" data-screen="1">
+                      <img src="../images/complyone-policy-exception.png" alt="Add temporary exception form over the Access rules page, with exception name, approver, expiry, and business justification">
+                      <button class="proto-restart" type="button" data-go="0">↺ Start over</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proto-foot">
+                  <p class="proto-caption" aria-live="polite"></p>
+                  <div class="proto-nav">
+                    <button class="stepper-arrow" type="button" data-dir="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+                    <span class="stepper-count"><b data-current>1</b> / 2</span>
+                    <button class="stepper-arrow" type="button" data-dir="1" aria-label="Next screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+                <template data-captions>
+                  <p>Keeps exceptions next to the rule they bend, so an admin raises one from the same place the rule is set.</p>
+                  <p>Makes every exception temporary and accountable, with a named approver, an expiry, and a recorded business reason.</p>
+                </template>
+              </div>
             </div>
             <div class="case-sub" id="platform-approval">
               <h3>Approval &amp; Escalation</h3>
