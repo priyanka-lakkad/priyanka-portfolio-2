@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=263">
+  <link rel="stylesheet" href="styles.css?v=264">
   <script>document.documentElement.classList.add("js", "is-home");</script>
 </head>
 <body>
@@ -43,9 +43,10 @@
 
         <div class="video-card" id="player">
           <div class="video-inner">
-            <!-- Your photo shows here until the video plays.
-                 Put the files in this folder and add: poster="photo.jpg" src="intro.mp4" -->
-            <video id="intro-video" playsinline></video>
+            <!-- Poster frame shows until the video plays. The clip is portrait, so
+                 object-position keeps the head and shoulders inside the circle
+                 (and the editor watermark in the top corner out of it). -->
+            <video id="intro-video" playsinline preload="metadata" poster="videos/intro-poster.jpg" src="videos/intro.mp4"></video>
           </div>
         </div>
       </div>

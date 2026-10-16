@@ -229,6 +229,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 78%;
 }
 /* Play control + caption sit in a pill below the circle, so nothing covers the photo */
 /* The circle is centered against the text; the play pill hangs just below it
