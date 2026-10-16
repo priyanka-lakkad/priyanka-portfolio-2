@@ -91,7 +91,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   /* Fill the first screen so the hero sits centered on any monitor */
   min-height: calc(100svh - var(--header-h));
-  padding-top: clamp(32px, 4vh, 72px);
+  padding-top: clamp(80px, 11vh, 140px);
   /* Room for the play control and up to three caption lines below the circle */
   padding-bottom: 168px;
 }
