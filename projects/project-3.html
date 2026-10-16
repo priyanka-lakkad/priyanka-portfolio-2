@@ -335,22 +335,44 @@
             <div class="case-sub" id="platform-dashboard">
               <h3>AI Powered Compliance Dashboard</h3>
               <p>What the dashboard surfaces and how AI helps teams act on it.</p>
-              <div class="live" data-live>
+              <!-- Click-through: open a priority risk on the live dashboard, then its AI recommendations -->
+              <div class="proto proto-live proto-comply" data-proto>
+                <div class="proto-steps is-compact" role="tablist" aria-label="Compliance dashboard flow">
+                  <button class="proto-step" role="tab" aria-selected="true" data-go="0">Priority Risks</button>
+                  <button class="proto-step" role="tab" aria-selected="false" data-go="1">AI Recommendations</button>
+                </div>
+
                 <div class="proto-frame">
                   <div class="proto-bar"><span></span><span></span><span></span>
-                    <span class="live-badge"><i></i>Live prototype</span>
                     <button class="proto-expand" type="button" aria-label="Expand prototype" data-expand>
                       <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>
                       <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
                     </button>
                   </div>
-                  <!-- Live prototype: updates automatically whenever the site is republished -->
-                  <div class="live-stage">
-                    <span class="live-loading">Loading prototype…</span>
-                    <iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/" title="ComplyOne interactive prototype" referrerpolicy="no-referrer"></iframe>
+                  <div class="proto-screens">
+                    <div class="proto-screen is-active" data-screen="0">
+                      <iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/" title="ComplyOne prototype: Compliance overview" referrerpolicy="no-referrer" tabindex="-1"></iframe>
+                      <button class="proto-hot" data-x="1100" data-y="428" data-zone="949,397,466,62" data-next aria-label="Open HIPAA training overdue"><span class="proto-tip">Open the HIPAA risk</span></button>
+                    </div>
+                    <div class="proto-screen" data-screen="1">
+                      <img src="../images/complyone-risk-detail.png" alt="HIPAA training overdue risk detail with owner, impact, training exposure, an AI recommended response, and a suggested action plan">
+                      <button class="proto-restart is-corner" type="button" data-go="0" style="bottom: 6%">↺ Start over</button>
+                    </div>
                   </div>
                 </div>
-                <p class="proto-caption live-caption">The working prototype. Start from the overview, open a priority risk to see its action plan, or move to Access rules to build and commit a rule.</p>
+
+                <div class="proto-foot">
+                  <p class="proto-caption" aria-live="polite"></p>
+                  <div class="proto-nav">
+                    <button class="stepper-arrow" type="button" data-dir="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+                    <span class="stepper-count"><b data-current>1</b> / 2</span>
+                    <button class="stepper-arrow" type="button" data-dir="1" aria-label="Next screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+                <template data-captions>
+                  <p>Ranks the risks that need attention today, so a compliance manager knows where to start.</p>
+                  <p>Opening a risk brings up AI recommended actions to help prevent it, with an owner, the exposure, and a step-by-step plan.</p>
+                </template>
               </div>
             </div>
         </section>
