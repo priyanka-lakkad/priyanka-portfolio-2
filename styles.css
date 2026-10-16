@@ -2754,3 +2754,15 @@ body:has(dialog.project-modal[open]) { overflow: hidden; }
   .kl-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .kl-arrow { justify-self: center; transform: rotate(90deg); }
 }
+
+/* ComplyOne click-through: ticks drawn in the prototype's own green and size */
+.fake-check.is-comply { width: 17px; height: 17px; border-radius: 3px; background: #13664b; }
+.fake-check.is-comply svg { width: 12px; height: 12px; }
+/* A tick carried over from the previous step shows straight away */
+.proto-overlay > .fake-check.is-kept { opacity: 1; }
+/* On a scrolled screen, a ticked checkbox hotspot still hides once used */
+.proto-live .proto-screen[data-pan].is-checked .proto-hot[data-check],
+.proto-live .proto-screen[data-pan].is-checked .proto-zone.for-check { opacity: 0; pointer-events: none; }
+/* ...and its next action stays hidden until the box is ticked */
+.proto-live .proto-screen[data-pan]:has([data-check]):not(.is-checked) .proto-hot[data-next],
+.proto-live .proto-screen[data-pan]:has([data-check]):not(.is-checked) .proto-zone.for-next { opacity: 0; pointer-events: none; }

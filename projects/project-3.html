@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=271">
+  <link rel="stylesheet" href="../styles.css?v=278">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="case-page accent-theme" style="--accent: #2f6f62">
@@ -230,7 +230,64 @@
             <div class="case-sub" id="platform-access">
               <h3>Role Based Access</h3>
               <p>How access is scoped by role, and the decision behind it.</p>
-              <div class="media"><span>Role based access screen (16:10)</span></div>
+              <!-- Click-through of the live Access rules page (same format as ProcureFlow).
+                   Hotspot coordinates are page pixels at 1440 wide; the page is 1088 tall. -->
+              <div class="proto proto-live proto-comply" data-proto>
+                <div class="proto-steps is-compact" role="tablist" aria-label="Role based access flow">
+                  <button class="proto-step" role="tab" aria-selected="true" data-go="0">Select Role</button>
+                  <button class="proto-step" role="tab" aria-selected="false" data-go="1">Select System &amp; Training</button>
+                  <button class="proto-step" role="tab" aria-selected="false" data-go="2">Enforcements</button>
+                  <button class="proto-step" role="tab" aria-selected="false" data-go="3">Commit</button>
+                </div>
+
+                <div class="proto-frame">
+                  <div class="proto-bar"><span></span><span></span><span></span>
+                    <button class="proto-expand" type="button" aria-label="Expand prototype" data-expand>
+                      <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>
+                      <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                    </button>
+                  </div>
+                  <div class="proto-screens">
+                    <div class="proto-screen is-active" data-screen="0" data-h="1088">
+                      <iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/#access-rules" title="ComplyOne prototype: Select role" referrerpolicy="no-referrer" tabindex="-1"></iframe>
+                      <button class="proto-hot" data-x="253" data-y="321" data-zone="43,302,420,38" data-next aria-label="Choose the role"><span class="proto-tip">Choose the role</span></button>
+                    </div>
+                    <div class="proto-screen" data-screen="1" data-h="1088" data-pan="188">
+                      <iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/#access-rules" title="ComplyOne prototype: Select system and training" referrerpolicy="no-referrer" tabindex="-1"></iframe>
+                      <button class="proto-hot" data-x="650" data-y="495" data-zone="600,476,100,38" data-next aria-label="Require Good Documentation Practices for LIMS"><span class="proto-tip">Require GDP for LIMS</span></button>
+                    </div>
+                    <div class="proto-screen" data-screen="2" data-h="1088" data-pan="188" style="--pan-from: 188">
+                      <iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/#access-rules" title="ComplyOne prototype: Enforcements" referrerpolicy="no-referrer" tabindex="-1"></iframe>
+                      <!-- The training ticked on the previous step stays ticked; ticking Block access shows its check -->
+                      <div class="proto-overlay" aria-hidden="true">
+                        <span class="fake-check is-comply is-kept" style="left:642px;top:299px"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
+                        <span class="fake-check is-comply" style="left:42px;top:652px"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
+                      </div>
+                      <button class="proto-hot" data-x="104" data-y="848" data-zone="43,826,663,67" data-check aria-label="Turn on Block access"><span class="proto-tip">Turn on Block access</span></button>
+                      <button class="proto-hot" data-x="1335" data-y="1029" data-zone="1273,1012,124,34" data-next aria-label="Commit rule"><span class="proto-tip">Commit rule</span></button>
+                    </div>
+                    <div class="proto-screen" data-screen="3">
+                      <img src="../images/complyone-rule-committed.png" alt="Access rules page after committing the rule, with a Rule committed summary: Lab Technician, 3 systems, 1 required mapping, 0 exceptions, access blocked until training is complete">
+                      <button class="proto-restart" type="button" data-go="0">↺ Start over</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proto-foot">
+                  <p class="proto-caption" aria-live="polite"></p>
+                  <div class="proto-nav">
+                    <button class="stepper-arrow" type="button" data-dir="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+                    <span class="stepper-count"><b data-current>1</b> / 4</span>
+                    <button class="stepper-arrow" type="button" data-dir="1" aria-label="Next screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+                <template data-captions>
+                  <p>Starts every rule from a role, so access is defined by what someone does rather than by who they are.</p>
+                  <p>Maps each regulated system to the training it requires, so the rule reads as a simple role-by-system checklist.</p>
+                  <p>Decides what happens when training is incomplete, from blocking access outright to alerting the manager.</p>
+                  <p>Commits the rule and sums up exactly what it enforces, so the admin can confirm it before it takes effect.</p>
+                </template>
+              </div>
             </div>
             <div class="case-sub" id="platform-exceptions">
               <h3>Exception Governance</h3>
@@ -330,6 +387,7 @@
   <script src="../scroll.js?v=10"></script>
   <script src="../logo.js?v=12"></script>
   <script src="../live.js?v=2"></script>
+  <script src="../proto.js?v=12"></script>
   <script src="../stepper.js?v=6"></script>
   <script src="../case.js?v=8"></script>
 </body>
