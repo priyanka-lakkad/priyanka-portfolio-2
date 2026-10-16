@@ -266,6 +266,18 @@ a { color: inherit; text-decoration: none; }
 }
 .video-col.is-playing .live-caption.has-cue { opacity: 1; transform: translate(-50%, 0); }
 @media (prefers-reduced-motion: reduce) { .live-caption, .video-photo { transition: none; } }
+/* Desktop: a bigger circle, and the hero text runs from the top of the circle
+   to its bottom. The stage is only as tall as the circle, so both columns
+   share one height; the ring canvas gets extra room above and below. */
+@media (min-width: 901px) {
+  .hero { align-items: stretch; align-content: center; }
+  .video-col { justify-content: center; }
+  .video-stage { aspect-ratio: auto; }
+  .video-card { width: 80%; }
+  .intro-canvas { top: -110px; height: calc(100% + 220px); }
+  .hero-text { display: flex; flex-direction: column; justify-content: space-between; }
+  .hero-text > * { margin-bottom: 0; }
+}
 /* Play control + caption sit in a pill below the circle, so nothing covers the photo */
 /* The circle is centered against the text; the play pill hangs just below it
    without affecting that alignment */
