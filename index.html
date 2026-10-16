@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=266">
+  <link rel="stylesheet" href="styles.css?v=268">
   <script>document.documentElement.classList.add("js", "is-home");</script>
 </head>
 <body>
@@ -43,18 +43,18 @@
 
         <div class="video-card" id="player">
           <div class="video-inner">
-            <!-- Poster frame shows until the video plays. The clip is portrait, so
-                 object-position keeps the head and shoulders inside the circle
-                 (and the editor watermark in the top corner out of it). -->
-            <video id="intro-video" playsinline preload="metadata" poster="videos/intro-poster.jpg" src="videos/intro.mp4">
+            <!-- The clip is portrait, so object-position keeps the head and
+                 shoulders inside the circle (and the editor watermark out of it) -->
+            <video id="intro-video" playsinline preload="metadata" src="videos/intro.mp4">
               <track kind="captions" srclang="en" label="English" src="videos/intro.vtt" default>
             </video>
+            <!-- Shown whenever the video isn't playing; pausing keeps the video's
+                 place, so play resumes from where it stopped -->
+            <img class="video-photo" src="images/hero-portrait.jpg" alt="Priyanka Lakkad">
           </div>
         </div>
       </div>
 
-      <!-- Captions appear beside the circle while the video plays -->
-      <p class="live-caption" id="live-caption"></p>
 
       <div class="video-controls" id="video-controls">
         <button id="play-toggle" class="play-toggle" aria-label="Play video">
@@ -64,6 +64,8 @@
         <span class="caption-title">A quick hello</span>
         <span class="caption-time" id="time">0:00</span>
       </div>
+      <!-- Spoken captions, below the play control while the video plays -->
+      <p class="live-caption" id="live-caption"></p>
     </div>
   </main>
 
@@ -294,8 +296,8 @@
       time.textContent = fmt(video.currentTime);
     });
 
-    // Captions: read the cues ourselves (hidden mode) and show them in the
-    // bubble beside the circle; it hides whenever the video isn't playing
+    // Captions: read the cues ourselves (hidden mode) and show them below the
+    // circle; they hide whenever the video isn't playing
     const caption = document.getElementById("live-caption");
     const track = video.textTracks[0];
     if (track) {
