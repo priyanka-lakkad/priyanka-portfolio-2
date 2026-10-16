@@ -236,16 +236,17 @@ a { color: inherit; text-decoration: none; }
    .is-playing on play and loses it on pause or end) */
 .video-photo {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  left: 3.6%;
+  width: 90%;
   height: 100%;
   object-fit: cover;
   /* Face centered in the circle: crop a little lower in the photo (so the face
      sits higher) and a slight zoom gives room to nudge it left to center */
   object-position: 50% 30%;
-  /* Zoomed out a little: narrower than the circle, so the sides fade into a
-     blurred copy of the same photo (.video-photo-fill) instead of a hard edge */
-  transform: scale(.9) translateX(-1.4%);
+  /* Zoomed out a little: 90% as wide as the circle but still full height (so
+     no gap above or below). The sides fade into a blurred copy of the same
+     photo (.video-photo-fill); left is nudged so the face stays centered. */
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
   transition: opacity .3s ease;
