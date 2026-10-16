@@ -242,18 +242,37 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   /* Face centered in the circle: crop a little lower in the photo (so the face
      sits higher) and a slight zoom gives room to nudge it left to center */
-  object-position: 50% 36%;
-  transform: scale(1.04) translateX(-1.25%);
+  object-position: 50% 30%;
+  /* Zoomed out a little: narrower than the circle, so the sides fade into a
+     blurred copy of the same photo (.video-photo-fill) instead of a hard edge */
+  transform: scale(.9) translateX(-1.4%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
   transition: opacity .3s ease;
 }
+.video-photo-fill {
+  position: absolute;
+  inset: -12%;
+  background: url("images/hero-portrait.jpg") 50% 30% / cover;
+  filter: blur(18px) saturate(1.1);
+  transition: opacity .3s ease;
+}
+.video-col.is-playing .video-photo-fill { opacity: 0; }
 .video-col.is-playing .video-photo { opacity: 0; }
 /* Spoken captions: centered under the play control, only while playing */
 .live-caption {
   position: absolute;
   top: calc(100% + 78px);
   left: 50%;
-  width: min(420px, 92vw);
+  width: max-content;
+  max-width: min(440px, 92vw);
   margin: 0;
+  padding: 10px 18px;
+  border-radius: 14px;
+  /* Solid backing so the words read clearly over the dotted ring */
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid #e6e2e5;
+  box-shadow: 0 12px 30px -16px rgba(22, 20, 26, .35);
   color: var(--text);
   font-size: 16px;
   font-weight: 500;
@@ -265,7 +284,7 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 .video-col.is-playing .live-caption.has-cue { opacity: 1; transform: translate(-50%, 0); }
-@media (prefers-reduced-motion: reduce) { .live-caption, .video-photo { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .live-caption, .video-photo, .video-photo-fill { transition: none; } }
 /* Desktop: a bigger circle, and the hero text runs from the top of the circle
    to its bottom. The stage is only as tall as the circle, so both columns
    share one height; the ring canvas gets extra room above and below. */
