@@ -119,8 +119,50 @@
       <div class="case-content">
         <section class="case-section" id="solution" data-reveal>
           <p class="case-num">02 · Solution</p>
-          <p>A quick look at the final design before the story of how you got there.</p>
-          <div class="media"><span>Solution screen (16:10)</span></div>
+          <p>Four screens carry compliance work from spotting a risk to controlling who gets access.</p>
+          <!-- Four key screens, shown as a stepper (same layout as ProcureFlow) -->
+          <div class="stepper" data-stepper>
+            <div class="stepper-head">
+            <div class="stepper-tabs" role="tablist" aria-label="ComplyOne screens">
+            <button class="stepper-tab" role="tab" aria-selected="true" aria-controls="step-dashboard" data-step="0">
+              <span class="stepper-name">Dashboard</span>
+            </button>
+            <button class="stepper-tab" role="tab" aria-selected="false" aria-controls="step-risk" data-step="1">
+              <span class="stepper-name">Risk Review</span>
+            </button>
+            <button class="stepper-tab" role="tab" aria-selected="false" aria-controls="step-access" data-step="2">
+              <span class="stepper-name">Access Rules</span>
+            </button>
+            <button class="stepper-tab" role="tab" aria-selected="false" aria-controls="step-exception" data-step="3">
+              <span class="stepper-name">Policy Exception</span>
+            </button>
+            </div>
+            <a class="case-jump" href="#platform-access">Explore the platform<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="stepper-panels">
+            <div class="stepper-panel is-active" id="step-dashboard" role="tabpanel" data-panel="0">
+              <div class="stepper-screen is-live is-scroll" data-h="1013" tabindex="0" aria-label="Scrollable screen"><span class="stepper-hint" aria-hidden="true">Scroll to explore</span><iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/" title="ComplyOne: Compliance overview dashboard" referrerpolicy="no-referrer" tabindex="-1"></iframe></div>
+              <p class="stepper-caption">Created to give compliance teams one view of training, access, exceptions, and audit readiness, with the risks that need action surfaced first.</p>
+            </div>
+            <div class="stepper-panel" id="step-risk" role="tabpanel" data-panel="1">
+              <div class="stepper-screen is-live"><img src="../images/complyone-risk-detail.png" alt="Risk detail for HIPAA training overdue, with owner, impact, training exposure, and a suggested action plan"></div>
+              <p class="stepper-caption">Created to turn a flagged risk into an owned response, with impact, exposure, and a suggested action plan in one place.</p>
+            </div>
+            <div class="stepper-panel" id="step-access" role="tabpanel" data-panel="2">
+              <div class="stepper-screen is-live is-scroll" data-h="1088" tabindex="0" aria-label="Scrollable screen"><span class="stepper-hint" aria-hidden="true">Scroll to explore</span><iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/#access-rules" title="ComplyOne: Access rules" referrerpolicy="no-referrer" tabindex="-1"></iframe></div>
+              <p class="stepper-caption">Created to tie each regulated system to the training it requires, so access is granted only once requirements are met.</p>
+            </div>
+            <div class="stepper-panel" id="step-exception" role="tabpanel" data-panel="3">
+              <div class="stepper-screen is-live"><img src="../images/complyone-policy-exception.png" alt="Add temporary exception form with approver, expiry, and business justification"></div>
+              <p class="stepper-caption">Created to keep exceptions visible and time-bound, each with a named approver, an expiry, and a recorded justification.</p>
+            </div>
+            </div>
+            <div class="stepper-nav">
+              <button class="stepper-arrow" type="button" data-dir="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+              <span class="stepper-count"><b data-current>1</b> / 4</span>
+              <button class="stepper-arrow" type="button" data-dir="1" aria-label="Next screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
         </section>
         <section class="case-section" id="discovery" data-reveal>
           <p class="case-num">03 · Discovery</p>
@@ -288,6 +330,7 @@
   <script src="../scroll.js?v=10"></script>
   <script src="../logo.js?v=12"></script>
   <script src="../live.js?v=2"></script>
+  <script src="../stepper.js?v=6"></script>
   <script src="../case.js?v=8"></script>
 </body>
 </html>
