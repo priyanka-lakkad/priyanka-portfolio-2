@@ -53,7 +53,7 @@
         if (frames.includes(document.activeElement)) document.activeElement._dirty = true;
       }));
       if ("IntersectionObserver" in window) {
-        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "600px 0px" });
+        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "1500px 0px" });
         io.observe(stage);
       } else load();
     }

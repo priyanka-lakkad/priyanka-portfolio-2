@@ -15,7 +15,7 @@
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver((entries) => {
         if (entries.some((e) => e.isIntersecting)) { load(); io.disconnect(); }
-      }, { rootMargin: "600px 0px" });
+      }, { rootMargin: "1500px 0px" });
       io.observe(stage);
     } else {
       load();

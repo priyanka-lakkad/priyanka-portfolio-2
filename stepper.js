@@ -53,7 +53,7 @@
       if ("ResizeObserver" in window) { const ro = new ResizeObserver(fit); screens.forEach((el) => ro.observe(el)); } else window.addEventListener("resize", fit);
       const load = () => frames.forEach((f) => { if (!f.src) f.src = f.dataset.src; });
       if ("IntersectionObserver" in window) {
-        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "600px 0px" });
+        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "1500px 0px" });
         io.observe(stepper);
       } else load();
     }
@@ -73,7 +73,7 @@
       if (f && f.dataset.src && !f.src) { f.src = f.dataset.src; el.classList.add("is-loaded"); }
     });
     if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "600px 0px" });
+      const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "1500px 0px" });
       io.observe(compare);
     } else load();
 

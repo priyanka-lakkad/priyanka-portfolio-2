@@ -50,7 +50,7 @@
       if ("ResizeObserver" in window) new ResizeObserver(fit).observe(showcase); else window.addEventListener("resize", fit);
       const load = () => project.querySelectorAll(".screen iframe[data-src]").forEach((f) => { if (!f.src) f.src = f.dataset.src; });
       if ("IntersectionObserver" in window) {
-        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "600px 0px" });
+        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: "1500px 0px" });
         io.observe(project);
       } else load();
     }
