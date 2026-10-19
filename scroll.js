@@ -26,15 +26,17 @@
   const circumference = 2 * Math.PI * 22;
   ring.style.strokeDasharray = circumference;
 
+  const phone = window.matchMedia("(max-width: 900px)");
   let ticking = false;
   const update = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const progress = max > 0 ? window.scrollY / max : 0;
     ring.style.strokeDashoffset = circumference * (1 - progress);
     // Homepage: header stays see-through over the landing dots until you
-    // scroll past the first screen
+    // scroll past the first screen; on phones it turns glassy as soon as you scroll
     if (root.classList.contains("is-home")) {
-      root.classList.toggle("is-scrolled", window.scrollY > window.innerHeight * 0.6);
+      const at = phone.matches ? 4 : window.innerHeight * 0.6;
+      root.classList.toggle("is-scrolled", window.scrollY > at);
     }
     // Homepage: mark Work as selected while the projects are on screen
     if (workLink && workSection) {

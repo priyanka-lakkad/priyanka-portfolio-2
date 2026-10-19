@@ -352,6 +352,8 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   padding-top: 36px;
   padding-bottom: 56px;
+  /* Solid so the background dots don't show through the text */
+  background: var(--ivory);
 }
 /* Divider lines above and below the strip, aligned with the content */
 .creds::before,
@@ -2794,8 +2796,7 @@ body:has(dialog.project-modal[open]) { overflow: hidden; }
 .shot-scroll img { display: block; width: 100%; height: auto; }
 .shot-scroll.is-scrolled .stepper-hint { opacity: 0; }
 
-/* Large monitors: scale the whole site up so it fills the screen instead of
-   sitting in a narrow column with small text */
-@media (min-width: 1900px) { html { zoom: 1.15; } }
-@media (min-width: 2300px) { html { zoom: 1.3; } }
-@media (min-width: 3200px) { html { zoom: 1.6; } }
+/* Very large monitors: scale the site up a little so it doesn't sit in a
+   narrow column with small text (normal 1920x1080 screens are unchanged) */
+@media (min-width: 2300px) and (min-height: 1250px) { html { zoom: 1.12; } }
+@media (min-width: 3200px) and (min-height: 1700px) { html { zoom: 1.35; } }
