@@ -1357,7 +1357,7 @@ a { color: inherit; text-decoration: none; }
    along the top of the footage sits just outside the frame */
 .stepper-screen.is-video { background: #04161b; }
 .stepper-screen.is-video video { position: absolute; left: 0; bottom: 0; width: 100%; height: 107%; object-fit: cover; object-position: center bottom; }
-.stepper-screen.is-scroll { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.stepper-screen.is-scroll { overflow-y: auto; scrollbar-width: thin; }
 .stepper-screen.is-scroll iframe { height: var(--h, 900px); }
 .stepper-screen.is-scroll .stepper-sizer { display: block; height: calc(var(--h, 900px) * var(--s, .5)); }
 .stepper-screen.is-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -2792,7 +2792,7 @@ body:has(dialog.project-modal[open]) { overflow: hidden; }
 .proto-live .proto-screen[data-pan]:has([data-check]):not(.is-checked) .proto-zone.for-next { opacity: 0; pointer-events: none; }
 
 /* Case hero screenshot that scrolls inside the browser frame */
-.shot-scroll { position: relative; aspect-ratio: 16 / 10; overflow-y: auto; overscroll-behavior: contain; background: #f6f7fa; }
+.shot-scroll { position: relative; aspect-ratio: 16 / 10; overflow-y: auto; background: #f6f7fa; }
 .shot-scroll img { display: block; width: 100%; height: auto; }
 .shot-scroll.is-scrolled .stepper-hint { opacity: 0; }
 
