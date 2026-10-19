@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=281">
+  <link rel="stylesheet" href="styles.css?v=292">
   <script>document.documentElement.classList.add("js", "is-home");</script>
 </head>
 <body>
@@ -17,7 +17,7 @@
       <nav>
         <a href="#work">Work</a>
         <a href="about.html">About</a>
-        <a href="#resume">Resume</a>
+        <a href="resume.html">Resume</a>
         <a href="#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
@@ -116,8 +116,8 @@
         </div>
         <div class="project-info-side">
           <div class="metric">
-            <span class="metric-num metric-status">In progress<span class="dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span></span>
-            <span class="metric-label">Two case studies underway</span>
+            <span class="metric-num metric-status">2 initiatives</span>
+            <span class="metric-label">Details available on request</span>
           </div>
           <button class="app-link" type="button" data-modal-open="digitate-modal" aria-haspopup="dialog">View details <span aria-hidden="true">→</span></button>
         </div>
@@ -154,29 +154,30 @@
       </div>
     </article>
 
-    <article class="project-app" data-project data-reveal style="--accent: #2f6f62">
+    <article class="project-app" data-project data-reveal style="--accent: #0c3b2d; --cta-bg: #07241b; --cta-highlight: #8fd8b4">
       <div class="showcase">
-        <div class="screen is-active" role="tabpanel" data-panel="one"><span>Key screen 1 (e.g. Dashboard)</span></div>
-        <div class="screen" role="tabpanel" data-panel="two"><span>Key screen 2 (e.g. Workflow builder)</span></div>
-        <div class="screen" role="tabpanel" data-panel="three"><span>Key screen 3 (e.g. Insights)</span></div>
+        <!-- ComplyOne screens from the case study: the live dashboard scaled to the card, plus two captured screens -->
+        <div class="screen is-active is-live" role="tabpanel" data-panel="one"><iframe data-src="https://complyone-access-prototype.plakkad.chatgpt.site/" title="ComplyOne: Compliance overview" referrerpolicy="no-referrer" tabindex="-1"></iframe></div>
+        <div class="screen is-live" role="tabpanel" data-panel="two"><img src="images/complyone-risk-detail.png?v=2" alt="ComplyOne: HIPAA training risk with AI recommended actions"></div>
+        <div class="screen is-live" role="tabpanel" data-panel="three"><img src="images/complyone-policy-exception.png?v=2" alt="ComplyOne: Adding a temporary policy exception"></div>
 
         <div class="app-tabs" role="tablist" aria-label="Project screens">
-          <button role="tab" aria-selected="true" data-tab="one" aria-label="Screen 1"><span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="two" aria-label="Screen 2"><span class="tab-progress"></span></button>
-          <button role="tab" aria-selected="false" data-tab="three" aria-label="Screen 3"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="true" data-tab="one" aria-label="Dashboard"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="two" aria-label="Risk Review"><span class="tab-progress"></span></button>
+          <button role="tab" aria-selected="false" data-tab="three" aria-label="Policy Exception"><span class="tab-progress"></span></button>
         </div>
       </div>
 
       <div class="project-info">
         <div class="project-info-text">
-          <p class="panel-kicker">Company</p>
-          <h3 class="project-title">Project title goes here</h3>
-          <p>One line on what you designed and why it mattered.</p>
+          <p class="panel-kicker">Pharmaceutical Company · 2022</p>
+          <h3 class="project-title">ComplyOne</h3>
+          <p>ComplyOne gives compliance leaders a continuous, actionable view of audit readiness across roles, training, system access, and exceptions.</p>
         </div>
         <div class="project-info-side">
           <div class="metric">
-            <span class="metric-num">00%</span>
-            <span class="metric-label">Impact metric</span>
+            <span class="metric-num">35%</span>
+            <span class="metric-label">Fewer access-related complaints</span>
           </div>
           <a class="app-link" href="projects/project-3.html">Open case study <span aria-hidden="true">→</span></a>
         </div>
@@ -212,7 +213,7 @@
     </article>
   </section>
 
-  <!-- Digitate has no case study page yet: its card opens this summary instead -->
+  <!-- Digitate work is shared on request: its card opens this summary instead of a case study -->
   <dialog class="project-modal" id="digitate-modal" aria-labelledby="digitate-modal-title" style="--accent: #2a4bc6">
     <button class="modal-close" type="button" data-modal-close aria-label="Close">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -220,8 +221,6 @@
     <p class="panel-kicker">Digitate</p>
     <h2 class="modal-title" id="digitate-modal-title">ignio<sup>™</sup></h2>
     <p class="modal-lede">Enhancing IT operations with AI-powered observability</p>
-    <p class="modal-status"><span class="avail-dot"></span>Case studies in progress</p>
-    <p class="modal-intro">I’m currently working on two key initiatives:</p>
     <ol class="modal-list">
       <li>
         <h3>Improving observability for executive decision-making</h3>
@@ -232,7 +231,7 @@
         <p>Designing an intelligent dashboard that enables DevOps teams to orchestrate and automate the complete feature release cycle for our flagship product, ignio<sup>™</sup>, from planning and validation to deployment, monitoring, and recovery. This helps teams release faster, reduce manual effort, and minimize risk.</p>
       </li>
     </ol>
-    <a class="btn btn-primary modal-cta" href="#contact" data-modal-close>Contact me for more details</a>
+    <a class="btn btn-primary modal-cta" href="#contact" data-modal-close>Contact me to see the work!</a>
   </dialog>
 
   <section class="container cta" id="contact">
@@ -240,7 +239,7 @@
       <p class="availability"><span class="avail-dot"></span>Available for full-time product design opportunities</p>
       <h2>Let's build <span class="highlight">intelligent systems</span> together.</h2>
       <p class="cta-note">I'm always happy to connect about product design, emerging AI experiences, or new opportunities.</p>
-      <a class="btn btn-secondary" href="#resume" target="_blank" rel="noopener">View resume</a>
+      <a class="btn btn-secondary" href="resume.html">View resume</a>
     </div>
 
     <ul class="contact-list" data-reveal style="--d:.1s">

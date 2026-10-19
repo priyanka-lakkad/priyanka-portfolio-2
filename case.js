@@ -13,11 +13,14 @@
   const pct = document.getElementById("toc-pct");
   const bar = document.getElementById("toc-bar");
 
+  // Large monitors scale the page with CSS zoom (styles.css); offsets are in
+  // unscaled pixels, so convert them to match scrollY and innerHeight
+  const zoom = () => parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
   // Position on the page, ignoring the slide-in offset of the scroll animation
   const pageTop = (el) => {
     let y = 0;
     for (let n = el; n; n = n.offsetParent) y += n.offsetTop;
-    return y;
+    return y * zoom();
   };
   // Position of a menu link inside the menu list
   const offsetInMenu = (el) => {
@@ -72,7 +75,7 @@
     // The story counts as complete once its end is on screen (while the menu
     // is still visible), or when the page can't scroll any further
     const content = document.querySelector(".case-content");
-    const storyEnd = pageTop(content) + content.offsetHeight - window.scrollY;
+    const storyEnd = pageTop(content) + content.offsetHeight * zoom() - window.scrollY;
     const complete = storyEnd <= window.innerHeight * 0.85 || (atBottom && lastTop < window.innerHeight);
     if (complete) index = sections.length - 1;
     setActive(index, complete);
@@ -81,7 +84,7 @@
     const story = document.querySelector(".case-content");
     if (story && pct) {
       const top = pageTop(story) - window.innerHeight * 0.33;
-      const p = complete ? 1 : Math.min(1, Math.max(0, (window.scrollY - top) / (story.offsetHeight - window.innerHeight * 0.5)));
+      const p = complete ? 1 : Math.min(1, Math.max(0, (window.scrollY - top) / (story.offsetHeight * zoom() - window.innerHeight * 0.5)));
       pct.textContent = `${Math.round(p * 100)}%`;
       if (bar) bar.parentElement.style.setProperty("--pct", p.toFixed(3));
     }
